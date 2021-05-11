@@ -11,7 +11,7 @@ const router=useRouter()
 useEffect(()=>{
     setTimeout(()=>{
         router.push('/')
-    },3000)
+    },5000)
 },[])
 
     const { colorMode } = useColorMode();
