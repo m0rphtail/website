@@ -19,8 +19,8 @@ export const Footer = () => {
     dark: "gray.500",
   };
   const footerHoverBg = {
-    light: "green.200",
-    dark: "green.300",
+    light: "linear(to-br, #3399ffaa,#ff3399aa)",
+    dark: "linear(to-br, #33ccff99,#ff55cc99)",
   };
   return (
       <>
@@ -37,7 +37,7 @@ export const Footer = () => {
             size="lg"
             color={borderIcon[colorMode]}
             variant="ghost"
-            _hover={{ backgroundColor: footerHoverBg[colorMode] }}
+            _hover={{ bgGradient: footerHoverBg[colorMode] ,color:"blackAlpha.700"}}
           />
         </Link>
         <Link href="https://github.com/m0rphtail" title="GitHub" isExternal>
@@ -47,7 +47,7 @@ export const Footer = () => {
             size="lg"
             color={borderIcon[colorMode]}
             variant="ghost"
-            _hover={{ backgroundColor: footerHoverBg[colorMode] }}
+            _hover={{ bgGradient: footerHoverBg[colorMode] ,color:"blackAlpha.700"}}
           />
         </Link>
         <Link
@@ -61,7 +61,7 @@ export const Footer = () => {
             size="lg"
             color={borderIcon[colorMode]}
             variant="ghost"
-            _hover={{ backgroundColor: footerHoverBg[colorMode] }}
+            _hover={{ bgGradient: footerHoverBg[colorMode] ,color:"blackAlpha.700"}}
           />
         </Link>
         <Link
@@ -75,7 +75,7 @@ export const Footer = () => {
             size="lg"
             color={borderIcon[colorMode]}
             variant="ghost"
-            _hover={{ backgroundColor: footerHoverBg[colorMode] }}
+            _hover={{ bgGradient: footerHoverBg[colorMode] ,color:"blackAlpha.700"}}
           />
         </Link>
         <Link
@@ -89,7 +89,7 @@ export const Footer = () => {
             size="lg"
             color={borderIcon[colorMode]}
             variant="ghost"
-            _hover={{ backgroundColor: footerHoverBg[colorMode] }}
+            _hover={{ bgGradient: footerHoverBg[colorMode] ,color:"blackAlpha.700"}}
           />
         </Link>
         <Link
@@ -103,7 +103,7 @@ export const Footer = () => {
             size="lg"
             color={borderIcon[colorMode]}
             variant="ghost"
-            _hover={{ backgroundColor: footerHoverBg[colorMode] }}
+            _hover={{ bgGradient: footerHoverBg[colorMode] ,color:"blackAlpha.700"}}
           />
         </Link>
         <Link
@@ -117,7 +117,7 @@ export const Footer = () => {
             size="lg"
             color={borderIcon[colorMode]}
             variant="ghost"
-            _hover={{ backgroundColor: footerHoverBg[colorMode] }}
+            _hover={{ bgGradient: footerHoverBg[colorMode] ,color:"blackAlpha.700"}}
           />
         </Link>
         <Link href="mailto:chitniskshitij@gmail.com" title="Email" isExternal>
@@ -127,7 +127,7 @@ export const Footer = () => {
             size="lg"
             color={borderIcon[colorMode]}
             variant="ghost"
-            _hover={{ backgroundColor: footerHoverBg[colorMode] }}
+            _hover={{ bgGradient: footerHoverBg[colorMode] ,color:"blackAlpha.700"}}
           />
         </Link>
       </Stack>

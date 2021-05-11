@@ -15,6 +15,10 @@ useEffect(()=>{
 },[])
 
     const { colorMode } = useColorMode();
+    const colorPrimary = {
+      light: "linear(to-br, #3399ff,#ff3399)",
+      dark: "linear(to-br, #33ccff,#ff55cc)",
+    };
     const colorSecondary = {
       light: "gray.600",
       dark: "gray.400",
@@ -29,7 +33,7 @@ useEffect(()=>{
         flexDirection='column'
         alignItems='center'
         >
-          <Heading as="h1" size="4xl" mb={5}>Oops!</Heading>
+          <Heading bgGradient={colorPrimary[colorMode]} bgClip="text" as="h1" size="4xl" mb={5}>Oopsie!</Heading>
           <Text fontSize="3xl" mb={5} color={colorSecondary[colorMode]}>This page doesn't exist</Text>
           <Text mb={3} color={colorSecondary[colorMode]}>You will be automatically redirected to the Homepage</Text>
           <Text color={colorSecondary[colorMode]}>or click <Link href="/"><a>here</a></Link></Text>

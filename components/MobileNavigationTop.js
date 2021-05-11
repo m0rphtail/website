@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {
     useColorMode,
     Flex,
-    Text
+    Heading
 } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import { useRouter } from 'next/router'
@@ -73,10 +73,10 @@ const MobileNavigationTop = () => {
             display={['flex', 'none', 'none']}
             backgroundColor={navBgColor[colorMode]}
         >
-            <Text
+            <Heading
                 visibility={visibility}
                 color={color[colorMode]}
-            >{router.pathname === '/' ? 'Home' : router.pathname.slice(1, 2).toUpperCase()}{router.pathname.slice(2).split('/')[0]}</Text>
+            >{router.pathname === '/' ? 'Home' : router.pathname.slice(1, 2).toUpperCase()}{router.pathname.slice(2).split('/')[0]}</Heading>
             <DarkModeSwitch />
         </StickyNav >
     )

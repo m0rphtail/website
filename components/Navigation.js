@@ -1,5 +1,5 @@
 import React from "react";
-import { useColorMode, Button, Flex, Stack } from "@chakra-ui/react";
+import { useColorMode, Button, Flex, Stack, ButtonGroup } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import NextLink from "next/link";
 import { useRouter } from "next/router";
@@ -27,8 +27,12 @@ const Navigation = () => {
   };
 
   const navHoverBg = {
-    light: "green.400",
-    dark: "green.500",
+    light: "linear(to-br, #3399ff,#ff3399)",
+    dark: "linear(to-br, #33ccff,#ff55cc)",
+  };
+  const hoverText = {
+    light: "whiteAlpha.900",
+    dark: "blackAlpha.800",
   };
 
   return (
@@ -48,14 +52,16 @@ const Navigation = () => {
       mx="auto"
       display={["none", "flex", "flex"]}
     >
-      <Stack direction="row" spacing={1}>
+      <ButtonGroup variant="ghost">
         <NextLink href="/" passHref>
           <Button
             color={colorPrimary[colorMode]}
             as="a"
-            variant="ghost"
             p={[1, 2, 4]}
-            _hover={{ backgroundColor: navHoverBg[colorMode] }}
+            _hover={{
+              bgGradient: navHoverBg[colorMode],
+              color: hoverText[colorMode],
+            }}
           >
             Home
           </Button>
@@ -64,9 +70,11 @@ const Navigation = () => {
           <Button
             color={colorPrimary[colorMode]}
             as="a"
-            variant="ghost"
             p={[1, 2, 4]}
-            _hover={{ backgroundColor: navHoverBg[colorMode] }}
+            _hover={{
+              bgGradient: navHoverBg[colorMode],
+              color: hoverText[colorMode],
+            }}
           >
             Blog
           </Button>
@@ -75,9 +83,11 @@ const Navigation = () => {
           <Button
             color={colorPrimary[colorMode]}
             as="a"
-            variant="ghost"
             p={[1, 2, 4]}
-            _hover={{ backgroundColor: navHoverBg[colorMode] }}
+            _hover={{
+              bgGradient: navHoverBg[colorMode],
+              color: hoverText[colorMode],
+            }}
           >
             Things I do
           </Button>
@@ -86,9 +96,11 @@ const Navigation = () => {
           <Button
             color={colorPrimary[colorMode]}
             as="a"
-            variant="ghost"
             p={[1, 2, 4]}
-            _hover={{ backgroundColor: navHoverBg[colorMode] }}
+            _hover={{
+              bgGradient: navHoverBg[colorMode],
+              color: hoverText[colorMode],
+            }}
           >
             Resume
           </Button>
@@ -97,14 +109,16 @@ const Navigation = () => {
           <Button
             color={colorPrimary[colorMode]}
             as="a"
-            variant="ghost"
             p={[1, 2, 4]}
-            _hover={{ backgroundColor: navHoverBg[colorMode] }}
+            _hover={{
+              bgGradient: navHoverBg[colorMode],
+              color: hoverText[colorMode],
+            }}
           >
             X
           </Button>
         </NextLink>
-      </Stack>
+      </ButtonGroup>
       <DarkModeSwitch />
     </StickyNav>
   );

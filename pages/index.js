@@ -6,8 +6,8 @@ import Container from "../components/Container";
 export default function Index() {
   const { colorMode } = useColorMode();
   const colorPrimary = {
-    light: "blackAlpha.800",
-    dark: "whiteAlpha.900",
+    light: "linear(to-br, #3399ff,#ff3399)",
+    dark: "linear(to-br, #33ccff,#ff55cc)",
   };
   const colorSecondary = {
     light: "gray.600",
@@ -35,7 +35,16 @@ export default function Index() {
             maxWidth="700px"
             px={4}
           >
-            <Heading mb={5} color={colorPrimary[colorMode]}>Hi, I'm Kshitij Chitnis</Heading>
+            <Heading
+              mb={5}
+              as="h1"
+              size="2xl"
+              bgGradient={colorPrimary[colorMode]}
+              bgClip="text"
+              padding="5px"
+            >
+              Hi, I'm Kshitij Chitnis
+            </Heading>
             <Text mb={10} color={colorSecondary[colorMode]}>
               dfdfddfdfdfdfdf dfdfdfdfd fdfdfdfdfd fdfdfdfd
               fdfdfddfdfdfddfdfddfdfdfdfdf dfdfdfdfd fdfdfdfddfdfdfdfdf

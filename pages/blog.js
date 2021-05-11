@@ -8,6 +8,7 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  useColorMode,
 } from "@chakra-ui/react";
 import Container from "../components/Container";
 import { getAllFilesFrontMatter } from "../lib/mdx";
@@ -15,6 +16,7 @@ import BlogPost from "../components/BlogPost";
 import { SearchIcon } from "@chakra-ui/icons";
 
 export default function Blog({ posts }) {
+  const { colorMode } = useColorMode();
   const [searchValue, setSearchValue] = useState("");
 
   const filteredBlogPosts = posts
@@ -26,10 +28,15 @@ export default function Blog({ posts }) {
       frontMatter.title.toLowerCase().includes(searchValue.toLowerCase())
     );
 
+  const colorPrimary = {
+    light: "linear(to-br, #3399ff,#ff3399)",
+    dark: "linear(to-br, #33ccff,#ff55cc)",
+  };
+
   return (
     <>
       <Head>
-        <title>Blog - Benjamin Carlson</title>
+        <title>Blog</title>
       </Head>
       <Container>
         <Stack
@@ -47,12 +54,17 @@ export default function Blog({ posts }) {
             maxWidth="700px"
             px={4}
           >
-            <Stack direction="row">
-              <Heading letterSpacing="tight" mb={4} as="h1" size="2xl">
-                Blog
-              </Heading>{" "}
-              {/* <Text>({posts.length} posts)</Text> */}
-            </Stack>
+            <Heading
+              letterSpacing="tight"
+              mb={4}
+              as="h1"
+              size="2xl"
+              bgGradient={colorPrimary[colorMode]}
+              bgClip="text"
+              padding="5px"
+            >
+              Blog
+            </Heading>{" "}
             <InputGroup mb={4} mr={4} w="100%">
               <Input
                 aria-label="Search by title"
