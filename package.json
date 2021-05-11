@@ -12,6 +12,8 @@
     "@chakra-ui/react": "^1.1.5",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
+    "@react-three/drei": "^4.3.3",
+    "@react-three/fiber": "^6.0.21",
     "date-fns": "^2.16.1",
     "framer-motion": "^3.2.1",
     "gray-matter": "^4.0.2",
@@ -27,6 +29,7 @@
     "remark-autolink-headings": "^6.0.1",
     "remark-capitalize": "^1.1.0",
     "remark-code-titles": "^0.1.1",
-    "remark-slug": "^6.0.0"
+    "remark-slug": "^6.0.0",
+    "three": "^0.128.0"
   }
 }
