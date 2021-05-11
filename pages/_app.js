@@ -1,8 +1,10 @@
 import React from 'react'
-import { ChakraProvider, ColorModeProvider, useColorMode } from '@chakra-ui/react'
-import customTheme from '../styles/theme'
+import { useColorMode, ColorModeProvider } from '@chakra-ui/react'
+import { MDXProvider } from '@mdx-js/react'
 import { Global, css } from '@emotion/react'
 import { prismLightTheme, prismDarkTheme } from '../styles/prism'
+import MDXComponents from '../components/MDXComponents'
+import { Chakra } from "../src/Chakra"
 
 const GlobalStyle = ({ children }) => {
   const { colorMode } = useColorMode()
@@ -12,23 +14,15 @@ const GlobalStyle = ({ children }) => {
       <Global
         styles={css`
           ${colorMode === 'light' ? prismLightTheme : prismDarkTheme};
-          ::selection {
-            background-color: #90CDF4;
-            color: #fefefe;
-          }
-          ::-moz-selection {
-            background: #ffb7b7;
-            color: #fefefe;
-          }
           html {
-            min-width: 356px;
+            min-width: 500px;
             scroll-behavior: smooth;
           }
           #__next {
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-            background: ${colorMode === 'light' ? 'white' : '#171717'};
+            min-height: 150vh;
+            background: ${colorMode === 'light' ? 'white' : '#15161a'};
           }
         `}
       />
@@ -37,20 +31,22 @@ const GlobalStyle = ({ children }) => {
   )
 }
 
+
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider resetCSS theme={customTheme}>
+    <Chakra cookies={pageProps.cookies}>
       <ColorModeProvider
         options={{
-          initialColorMode: "light",
-          useSystemColorMode: true,
+          useSystemColorMode: false,
         }}
       >
-        <GlobalStyle>
-          <Component {...pageProps} />
-        </GlobalStyle>
+        <MDXProvider components={MDXComponents}>
+          <GlobalStyle>
+            <Component {...pageProps} />
+          </GlobalStyle>
+        </MDXProvider>
       </ColorModeProvider>
-    </ChakraProvider>
+    </Chakra>
   )
 }
 

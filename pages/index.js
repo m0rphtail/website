@@ -1,5 +1,5 @@
 import { useColorMode } from "@chakra-ui/color-mode";
-import { Flex, Heading, Text, VStack } from "@chakra-ui/layout";
+import { Flex, Heading, Text, Stack } from "@chakra-ui/layout";
 import Head from "next/head";
 import Container from "../components/Container";
 
@@ -16,12 +16,20 @@ export default function Index() {
         <Head>
           <title>MorphTail | Home</title>
         </Head>
-        <VStack>
+        <Stack
+          as="main"
+          spacing={8}
+          justifyContent="center"
+          alignItems="flex-start"
+          m="0 auto 4rem auto"
+          maxWidth="700px"
+        >
           <Flex
             flexDirection="column"
             justifyContent="flex-start"
             alignItems="flex-start"
             maxWidth="700px"
+            px={4}
           >
             <Heading mb={5}>Hi, I'm Kshitij Chitnis</Heading>
             <Text mb={10} color={colorSecondary[colorMode]}>
@@ -37,7 +45,7 @@ export default function Index() {
               fdfdfddfdfdfd
             </Text>
           </Flex>
-        </VStack>
+        </Stack>
       </Container>
     </>
   );
