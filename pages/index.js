@@ -2,6 +2,9 @@ import { useColorMode } from "@chakra-ui/color-mode";
 import { Flex, Heading, Text, Stack } from "@chakra-ui/layout";
 import Head from "next/head";
 import Container from "../components/Container";
+import { Canvas } from "@react-three/fiber";
+import Sphere from "../components/Sphere";
+import { OrbitControls, Stars } from "@react-three/drei";
 
 export default function Index() {
   const { colorMode } = useColorMode();
@@ -19,8 +22,7 @@ export default function Index() {
       <Container>
         <Head>
           <title>MorphTail | Home</title>
-        </Head>
-        <Stack
+        </Head><Stack
           as="main"
           spacing={8}
           justifyContent="center"
@@ -28,6 +30,14 @@ export default function Index() {
           m="0 auto 4rem auto"
           maxWidth="700px"
         >
+        <Canvas camera={{ position: [0, 0, 3] }}>
+              <ambientLight intensity={2} />
+              <pointLight position={[40, 40, 40]} />
+              <Stars />
+              <Sphere position={[0, 0, 0]} />
+              <OrbitControls />
+            </Canvas>
+        
           <Flex
             flexDirection="column"
             justifyContent="flex-start"
@@ -35,8 +45,10 @@ export default function Index() {
             maxWidth="700px"
             px={4}
           >
+            
             <Heading
               mb={5}
+              mt={5}
               as="h1"
               size="2xl"
               bgGradient={colorPrimary[colorMode]}

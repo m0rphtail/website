@@ -1,19 +1,19 @@
-import React from 'react'
-import { useColorMode, ColorModeProvider } from '@chakra-ui/react'
-import { MDXProvider } from '@mdx-js/react'
-import { Global, css } from '@emotion/react'
-import { prismLightTheme, prismDarkTheme } from '../styles/prism'
-import MDXComponents from '../components/MDXComponents'
-import { Chakra } from "../src/Chakra"
+import React from "react";
+import { useColorMode, ColorModeProvider } from "@chakra-ui/react";
+import { MDXProvider } from "@mdx-js/react";
+import { Global, css } from "@emotion/react";
+import { prismLightTheme, prismDarkTheme } from "../styles/prism";
+import MDXComponents from "../components/MDXComponents";
+import { Chakra } from "../src/Chakra";
 
 const GlobalStyle = ({ children }) => {
-  const { colorMode } = useColorMode()
+  const { colorMode } = useColorMode();
 
   return (
     <>
       <Global
         styles={css`
-          ${colorMode === 'light' ? prismLightTheme : prismDarkTheme};
+          ${colorMode === "light" ? prismLightTheme : prismDarkTheme};
           html {
             min-width: 32em;
             scroll-behavior: smooth;
@@ -22,15 +22,19 @@ const GlobalStyle = ({ children }) => {
             display: flex;
             flex-direction: column;
             min-height: 120vh;
-            background: ${colorMode === 'light' ? 'white' : '#15161a'};
+            background: ${colorMode === "light" ? "white" : "#15161a"};
+          }
+          canvas {
+            min-height:32em;
+            min-width:32em;
+
           }
         `}
       />
       {children}
     </>
-  )
-}
-
+  );
+};
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -47,7 +51,7 @@ function MyApp({ Component, pageProps }) {
         </MDXProvider>
       </ColorModeProvider>
     </Chakra>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
