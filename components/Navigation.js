@@ -17,15 +17,18 @@ const StickyNav = styled(Flex)`
 const Navigation = () => {
   const { colorMode } = useColorMode();
   const router = useRouter();
-
+  const colorPrimary = {
+    light: "blackAlpha.800",
+    dark: "whiteAlpha.900",
+  };
   const bgColor = {
     light: "#fff",
     dark: "#15161a",
   };
 
   const navHoverBg = {
-    light: "gray.100",
-    dark: "gray.700",
+    light: "green.400",
+    dark: "green.500",
   };
 
   return (
@@ -48,6 +51,7 @@ const Navigation = () => {
       <Stack direction="row" spacing={1}>
         <NextLink href="/" passHref>
           <Button
+            color={colorPrimary[colorMode]}
             as="a"
             variant="ghost"
             p={[1, 2, 4]}
@@ -58,6 +62,7 @@ const Navigation = () => {
         </NextLink>
         <NextLink href="/blog" passHref>
           <Button
+            color={colorPrimary[colorMode]}
             as="a"
             variant="ghost"
             p={[1, 2, 4]}
@@ -68,6 +73,7 @@ const Navigation = () => {
         </NextLink>
         <NextLink href="/things-i-do" passHref>
           <Button
+            color={colorPrimary[colorMode]}
             as="a"
             variant="ghost"
             p={[1, 2, 4]}
@@ -78,6 +84,7 @@ const Navigation = () => {
         </NextLink>
         <NextLink href="/resume" passHref>
           <Button
+            color={colorPrimary[colorMode]}
             as="a"
             variant="ghost"
             p={[1, 2, 4]}
@@ -88,6 +95,7 @@ const Navigation = () => {
         </NextLink>
         <NextLink href="/X" passHref>
           <Button
+            color={colorPrimary[colorMode]}
             as="a"
             variant="ghost"
             p={[1, 2, 4]}

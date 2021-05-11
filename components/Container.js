@@ -30,6 +30,7 @@ const Container = ({ children }) => {
         px={[0, 4, 4]}
         mt={(0, 8, 8)}
         minWidth="lg"
+        minWidth="lg"
       >
         {children}
         <Footer />

@@ -19,6 +19,10 @@ const StickyNav = styled(Flex)`
 const MobileNavigation = () => {
     const { colorMode } = useColorMode()
     const router = useRouter()
+    const colorPrimary = {
+        light: "blackAlpha.800",
+        dark: "whiteAlpha.900",
+      };
 
     const navBgColor = {
         light: 'gray.50',
@@ -46,27 +50,27 @@ const MobileNavigation = () => {
             display={['flex', 'none', 'none']}
         >
                     <NextLink href="/" passHref>
-                        <Button as="a" variant="ghost" p={[1, 2, 4]} _hover={{ backgroundColor: navActiveBg[colorMode] }}>
+                        <Button color={colorPrimary[colorMode]} as="a" variant="ghost" p={[1, 2, 4]} _hover={{ backgroundColor: navActiveBg[colorMode] }}>
                             Home
                         </Button>
                     </NextLink>
                     <NextLink href="/blog" passHref>
-                        <Button as="a" variant="ghost" p={[1, 2, 4]} _hover={{ backgroundColor: navActiveBg[colorMode] }}>
+                        <Button color={colorPrimary[colorMode]} as="a" variant="ghost" p={[1, 2, 4]} _hover={{ backgroundColor: navActiveBg[colorMode] }}>
                             Blog
                         </Button>
                     </NextLink>
                     <NextLink href="/things-i-do" passHref>
-                        <Button as="a" variant="ghost" p={[1, 2, 4]} _hover={{ backgroundColor: navActiveBg[colorMode] }}>
+                        <Button color={colorPrimary[colorMode]} as="a" variant="ghost" p={[1, 2, 4]} _hover={{ backgroundColor: navActiveBg[colorMode] }}>
                             Things I do
                         </Button>
                     </NextLink>
                     <NextLink href="/resume" passHref>
-                        <Button as="a" variant="ghost" p={[1, 2, 4]} _hover={{ backgroundColor: navActiveBg[colorMode] }}>
+                        <Button color={colorPrimary[colorMode]} as="a" variant="ghost" p={[1, 2, 4]} _hover={{ backgroundColor: navActiveBg[colorMode] }}>
                             Resume
                         </Button>
                     </NextLink>
                     <NextLink href="/X" passHref>
-                        <Button as="a" variant="ghost" p={[1, 2, 4]} _hover={{ backgroundColor: navActiveBg[colorMode] }}>
+                        <Button color={colorPrimary[colorMode]} as="a" variant="ghost" p={[1, 2, 4]} _hover={{ backgroundColor: navActiveBg[colorMode] }}>
                             X
                         </Button>
                     </NextLink>

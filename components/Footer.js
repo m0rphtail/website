@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Link, IconButton, useColorMode } from "@chakra-ui/react";
+import { Stack, Link, IconButton, useColorMode } from "@chakra-ui/react";
 import {
   FiGithub,
   FiTwitter,
@@ -19,21 +19,13 @@ export const Footer = () => {
     dark: "gray.500",
   };
   const footerHoverBg = {
-    light: "gray.100",
-    dark: "gray.700",
+    light: "green.200",
+    dark: "green.300",
   };
   return (
       <>
       <Divider alignSelf="center" width="500px"/>
-    <Flex
-      align="center"
-      mb={4}
-      mt={4}
-      direction="column"
-      visibility={("hidden", "visible", "visible")}
-      display={["none", "flex", "flex"]}
-    >
-      <div>
+    <Stack mt={5} mb={5} spacing={1} direction="row" alignSelf="center">
         <Link
           href="https://twitter.com/kshitijchitnis"
           title="Twitter"
@@ -86,7 +78,6 @@ export const Footer = () => {
             _hover={{ backgroundColor: footerHoverBg[colorMode] }}
           />
         </Link>
-        <br/>
         <Link
           href="https://www.instagram.com/jitihsk.sintihc"
           title="Instagram"
@@ -139,8 +130,7 @@ export const Footer = () => {
             _hover={{ backgroundColor: footerHoverBg[colorMode] }}
           />
         </Link>
-      </div>
-    </Flex>
+      </Stack>
     </>
   );
 };

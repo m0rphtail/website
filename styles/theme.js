@@ -4,8 +4,8 @@ import { createBreakpoints } from "@chakra-ui/theme-tools"
 
 const fonts = {
     ...chakraTheme.fonts,
-    body: `Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,
-    heading: `Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`
+    body: `Poppins,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`,
+    heading: `Poppins,Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"`
 }
 
 const breakpoints = createBreakpoints({
@@ -36,6 +36,11 @@ const overrides = {
         "5xl": "48px",
         "6xl": "64px",
     },
+    colorScheme:{
+        white:"ffffff",
+        black:"red"
+
+    }
 }
 
 const customTheme = extendTheme(overrides)
