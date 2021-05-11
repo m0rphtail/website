@@ -15,7 +15,7 @@ const GlobalStyle = ({ children }) => {
         styles={css`
           ${colorMode === 'light' ? prismLightTheme : prismDarkTheme};
           html {
-            min-width: 500px;
+            min-width: 32em;
             scroll-behavior: smooth;
           }
           #__next {

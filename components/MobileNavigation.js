@@ -36,7 +36,7 @@ const MobileNavigation = () => {
             justifyContent="space-between"
             alignItems="center"
             maxWidth="800px"
-            minWidth="320px"
+            minWidth="lg"
             width="100%"
             bg={navBgColor[colorMode]}
             as="nav"
