@@ -25,9 +25,7 @@ const GlobalStyle = ({ children }) => {
             background: ${colorMode === "light" ? "white" : "#15161a"};
           }
           canvas {
-            min-height:32em;
-            min-width:32em;
-
+            width: 100%;
           }
         `}
       />
