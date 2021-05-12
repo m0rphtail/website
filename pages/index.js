@@ -4,7 +4,7 @@ import Head from "next/head";
 import Container from "../components/Container";
 import { Canvas } from "@react-three/fiber";
 import Sphere from "../components/Sphere";
-import { OrbitControls, Stars } from "@react-three/drei";
+import { Stars, OrbitControls } from "@react-three/drei";
 
 export default function Index() {
   const { colorMode } = useColorMode();
@@ -16,7 +16,6 @@ export default function Index() {
     light: "gray.600",
     dark: "gray.400",
   };
-
   return (
     <>
       <Container>
@@ -38,12 +37,10 @@ export default function Index() {
             maxWidth="700px"
             px={4}
           >
-            <Canvas camera={{ position: [0, 0, 3] }}>
-              <ambientLight intensity={2} />
-              <pointLight position={[40, 40, 40]} />
-              <Stars />
-              <Sphere position={[0, 0, 0]} />
-              <OrbitControls />
+            <Canvas colorManagement shadowMap>
+              <Sphere />
+              <Stars factor={8} fade />
+              <OrbitControls enableZoom={false} enablePan={false} />
             </Canvas>
 
             <Heading

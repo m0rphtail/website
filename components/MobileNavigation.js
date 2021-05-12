@@ -26,8 +26,8 @@ const MobileNavigation = () => {
   };
 
   const navActiveBg = {
-    light: "green.400",
-    dark: "green.500",
+    light: "linear(to-br, #3399ff,#ff3399)",
+    dark: "linear(to-br, #33ccff,#ff55cc)",
   };
 
   return (
@@ -51,8 +51,7 @@ const MobileNavigation = () => {
           as="a"
           variant="ghost"
           p={[1, 2, 4]}
-          _hover={{ backgroundColor: navActiveBg[colorMode] }}
-          _focus="green.400"
+          _hover={{ bgGradient: navActiveBg[colorMode] }}
         >
           Home
         </Button>
@@ -63,8 +62,7 @@ const MobileNavigation = () => {
           as="a"
           variant="ghost"
           p={[1, 2, 4]}
-          _hover={{ backgroundColor: navActiveBg[colorMode] }}
-          _focus="green.400"
+          _hover={{ bgGradient: navActiveBg[colorMode] }}
         >
           Blog
         </Button>
@@ -75,8 +73,7 @@ const MobileNavigation = () => {
           as="a"
           variant="ghost"
           p={[1, 2, 4]}
-          _hover={{ backgroundColor: navActiveBg[colorMode] }}
-          _focus="green.400"
+          _hover={{ bgGradient: navActiveBg[colorMode] }}
         >
           Things I do
         </Button>
@@ -87,8 +84,7 @@ const MobileNavigation = () => {
           as="a"
           variant="ghost"
           p={[1, 2, 4]}
-          _hover={{ backgroundColor: navActiveBg[colorMode] }}
-          _focus="green.400"
+          _hover={{ bgGradient: navActiveBg[colorMode] }}
         >
           Resume
         </Button>
@@ -99,8 +95,7 @@ const MobileNavigation = () => {
           as="a"
           variant="ghost"
           p={[1, 2, 4]}
-          _hover={{ backgroundColor: navActiveBg[colorMode] }}
-          _focus="green.400"
+          _hover={{ bgGradient: navActiveBg[colorMode] }}
         >
           X
         </Button>

@@ -26,6 +26,7 @@ const GlobalStyle = ({ children }) => {
           }
           canvas {
             width: 100%;
+            height:60vh
           }
         `}
       />

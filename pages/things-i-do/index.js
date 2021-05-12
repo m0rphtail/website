@@ -36,7 +36,15 @@ export default function Index() {
             alignItems="flex-start"
             maxWidth="700px"
           >
-            <Heading letterSpacing="tight" mb={4} as="h1" size="2xl" bgGradient={Bg[colorMode]} bgClip="text" padding="5px">
+            <Heading
+              letterSpacing="tight"
+              mb={4}
+              as="h1"
+              size="2xl"
+              bgGradient={Bg[colorMode]}
+              bgClip="text"
+              padding="5px"
+            >
               Things I do
             </Heading>
             <Grid

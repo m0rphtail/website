@@ -13,8 +13,8 @@ const Container = ({ children }) => {
     dark: "#15161a",
   };
   const color = {
-    light: "black",
-    dark: "white",
+    light: "gray.600",
+    dark: "gray.400",
   };
 
   return (

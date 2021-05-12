@@ -75,6 +75,7 @@ const Navigation = () => {
               bgGradient: navHoverBg[colorMode],
               color: hoverText[colorMode],
             }}
+            _
           >
             Blog
           </Button>

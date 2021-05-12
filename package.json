@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-chakra-website-youtube",
+  "name": "morphtail-website",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,7 @@
     "@chakra-ui/react": "^1.1.5",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
+    "@react-hook/mouse-position": "^4.1.0",
     "@react-three/drei": "^4.3.3",
     "@react-three/fiber": "^6.0.21",
     "date-fns": "^2.16.1",

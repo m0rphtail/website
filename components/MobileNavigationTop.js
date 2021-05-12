@@ -34,8 +34,8 @@ const MobileNavigationTop = () => {
     }
 
     const color = {
-        light: 'black',
-        dark: 'white'
+        light: "linear(to-br, #3399ff,#ff3399)",
+        dark: "linear(to-br, #33ccff,#ff55cc)",
     }
 
     const handleScroll = () => {
@@ -75,7 +75,8 @@ const MobileNavigationTop = () => {
         >
             <Heading
                 visibility={visibility}
-                color={color[colorMode]}
+                bgGradient={color[colorMode]}
+                bgClip="text"
             >{router.pathname === '/' ? 'Home' : router.pathname.slice(1, 2).toUpperCase()}{router.pathname.slice(2).split('/')[0]}</Heading>
             <DarkModeSwitch />
         </StickyNav >
