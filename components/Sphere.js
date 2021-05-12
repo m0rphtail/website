@@ -1,11 +1,15 @@
-import { useRef } from "react";
+import { useRef,useState } from "react";
+import * as THREE from 'three';
 import { useFrame } from "@react-three/fiber";
 import { TextureLoader } from "three";
 
 export default function Sphere() {
   const mesh = useRef();
-  useFrame(() => {
-    mesh.current.rotation.y += 0.002;
+  const [vec] = useState(() => new THREE.Vector3())
+  useFrame((state) => {
+    mesh.current.rotation.y += 0.005;
+    state.camera.position.lerp(vec.set(state.mouse.x * 5, state.mouse.y * 5, 5),0.05);
+    state.camera.lookAt(0, 0, 0);
   });
 
   const textureLoader = new TextureLoader();
@@ -14,7 +18,7 @@ export default function Sphere() {
   return (
     <>
       <mesh ref={mesh}>
-        <sphereBufferGeometry args={[2.5, 64, 64]} attach="geometry" />
+        <sphereBufferGeometry args={[3, 64, 64]} attach="geometry" />
         <meshStandardMaterial
           normalMap={normalmap}
           attach="material"
@@ -37,12 +41,6 @@ export default function Sphere() {
         position={[2.13, -2.5, 2.5]}
       />
       <pointLight castShadow intensity="1" color="#fff" position={[2, 3, 2]} />
-      <pointLight
-        castShadow
-        intensity="20"
-        color="#2B6CB0"
-        position={[0, 0, -3]}
-      />
     </>
   );
 }

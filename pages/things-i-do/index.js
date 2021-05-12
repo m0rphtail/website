@@ -27,7 +27,7 @@ export default function Index() {
           spacing={8}
           justifyContent="center"
           alignItems="flex-start"
-          m="0 auto 4rem auto"
+          m="0 auto 0 auto"
           maxWidth="700px"
         >
           <Flex
@@ -35,6 +35,8 @@ export default function Index() {
             justifyContent="flex-start"
             alignItems="flex-start"
             maxWidth="700px"
+            px={4}
+            minH="100vh"
           >
             <Heading
               letterSpacing="tight"

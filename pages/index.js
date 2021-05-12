@@ -18,56 +18,24 @@ export default function Index() {
   };
   return (
     <>
+      {" "}
+      <div className="desktopContainer">
+        <h1 className="desktopName">MØR₽H₸AIL</h1>
+      </div>
+      <div className="mobileContainer">
+        <h1 className="mobileName">MØR₽H</h1>
+        <h1 className="mobileName">₸AIL</h1>
+      </div>
       <Container>
         <Head>
           <title>MorphTail | Home</title>
         </Head>
-        <Stack
-          as="main"
-          spacing={8}
-          justifyContent="center"
-          alignItems="flex-start"
-          m="0 auto 4rem auto"
-          maxWidth="700px"
-        >
-          <Flex
-            flexDirection="column"
-            justifyContent="flex-start"
-            alignItems="flex-start"
-            maxWidth="700px"
-            px={4}
-          >
-            <Canvas colorManagement shadowMap>
-              <Sphere />
-              <Stars factor={8} fade />
-              <OrbitControls enableZoom={false} enablePan={false} />
-            </Canvas>
 
-            <Heading
-              mb={5}
-              mt={5}
-              as="h1"
-              size="2xl"
-              bgGradient={colorPrimary[colorMode]}
-              bgClip="text"
-              padding="5px"
-            >
-              Hi, I'm Kshitij Chitnis
-            </Heading>
-            <Text mb={10} color={colorSecondary[colorMode]}>
-              dfdfddfdfdfdfdf dfdfdfdfd fdfdfdfdfd fdfdfdfd
-              fdfdfddfdfdfddfdfddfdfdfdfdf dfdfdfdfd fdfdfdfddfdfdfdfdf
-              dfdfdfdfd fdfdfdfdfddfdfdfdfdf dfdfdfdfd fdfdfdfdfddfdfdfdfdf
-              dfdfdfdfd fdfdfdfdfddfdfdfdfdf dfdfdfdfd fdfdfdfdfddfdfdfdfdf
-              dfddfdfddfdfdfdfdf dfdfdfdfddfdfdfdfdf dfdfdfdfd fdfdfdfdfd
-              fdfdfdfd fdfdfddfdfdfddfdfd fdfdfdfdfd fdfdfdfd
-              fdfdfddfdfdfdfdfdfd fdfdfdfdfd fdfdfdfd fdfdfddfdfdfddfdfd
-              fdfdfdfd fdfdfddfdfdfddfdfd fdfdfdfd fdfdfddfdfdfddfdfd fdfdfdfd
-              fdfdfddfdfdfddfdfd fdfdfdfd fdfdfddfdfdfddfdfdfd fdfdfdfd
-              fdfdfddfdfdfd
-            </Text>
-          </Flex>
-        </Stack>
+        <Canvas className="theCanvas">
+          <Sphere />
+          {/* <Stars factor={8} fade /> */}
+          {/* <OrbitControls enableZoom={false} enablePan={false} enableRotate={true}/> */}
+        </Canvas>
       </Container>
     </>
   );
