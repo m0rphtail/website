@@ -9,7 +9,7 @@ import {
   Spacer,
   HStack,
 } from "@chakra-ui/react";
-import Container from "../components/Container";
+import Container from "../../components/Container";
 
 const Gear = () => {
   const { colorMode } = useColorMode();
