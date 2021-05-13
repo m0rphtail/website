@@ -1,5 +1,15 @@
+import { Button } from "@chakra-ui/button";
 import { useColorMode } from "@chakra-ui/color-mode";
-import { Flex, Grid, GridItem, Heading, Stack } from "@chakra-ui/layout";
+import {
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Stack,
+  Text,
+  Box,
+  Spacer,
+} from "@chakra-ui/layout";
 import Head from "next/head";
 import NextLink from "next/link";
 import Container from "../../components/Container";
@@ -7,12 +17,20 @@ import Container from "../../components/Container";
 export default function Index() {
   const { colorMode } = useColorMode();
   const colorPrimary = {
-    light: "whiteAlpha.900",
     dark: "blackAlpha.800",
+    light: "whiteAlpha.900",
+  };
+  const colorSecondary = {
+    light: "gray.700",
+    dark: "gray.400",
   };
   const Bg = {
     light: "linear(to-br, #3399ff,#ff3399)",
     dark: "linear(to-br, #33ccff,#ff55cc)",
+  };
+  const hoverBg = {
+    light: "linear(to-bl,#ff3399, #3399ff)",
+    dark: "linear(to-bl,#ff55cc, #33ccff,)",
   };
 
   return (
@@ -36,7 +54,6 @@ export default function Index() {
             alignItems="flex-start"
             maxWidth="700px"
             px={4}
-            minH="100vh"
           >
             <Heading
               letterSpacing="tight"
@@ -49,45 +66,47 @@ export default function Index() {
             >
               Things I do
             </Heading>
-            <Grid
-              h="lg"
-              w="md"
-              templateRows="repeat(2, 1fr)"
-              templateColumns="repeat(8, 1fr)"
-              gap={4}
-              mt={5}
-            >
-              <NextLink href="things-i-do/code">
-                <GridItem
-                  maxW="lg"
-                  as="button"
-                  borderRadius="lg"
-                  colSpan={8}
-                  rowSpan={1}
-                  color={colorPrimary[colorMode]}
+            <Text color={colorSecondary[colorMode]}>
+              There are tonnes of things that I am curious about and keep
+              trying them out and learning various new things, but these are the
+              things I spend most of my time on.
+            </Text>
+            <Flex mt={5} w="100%" h="200px">
+              <NextLink href="/things-i-do/code">
+                <Button
+                  w="100%"
+                  h="100%"
                   bgGradient={Bg[colorMode]}
-                  children={<Heading>Code</Heading>}
-                />
+                  _hover={{ bgGradient: hoverBg[colorMode]}}
+                  animation=""
+                >
+                  <Heading color={colorPrimary[colorMode]}>Code</Heading>
+                </Button>
               </NextLink>
-              <GridItem
-                as="button"
-                borderRadius="lg"
-                colSpan={4}
-                rowSpan={1}
-                color={colorPrimary[colorMode]}
-                bgGradient={Bg[colorMode]}
-                children={<Heading>Art</Heading>}
-              />
-              <GridItem
-                as="button"
-                borderRadius="lg"
-                colSpan={4}
-                rowSpan={1}
-                color={colorPrimary[colorMode]}
-                bgGradient={Bg[colorMode]}
-                children={<Heading>Music</Heading>}
-              />
-            </Grid>
+            </Flex>
+            <Flex mt={3} w="100%" h="200px">
+              <NextLink href="/things-i-do/art">
+                <Button
+                  w="49%"
+                  h="100%"
+                  bgGradient={Bg[colorMode]}
+                  _hover={{ bgGradient: hoverBg[colorMode] }}
+                >
+                  <Heading color={colorPrimary[colorMode]}>Art</Heading>
+                </Button>
+              </NextLink>
+              <Spacer />
+              <NextLink href="/things-i-do/music">
+                <Button
+                  w="49%"
+                  h="100%"
+                  bgGradient={Bg[colorMode]}
+                  _hover={{ bgGradient: hoverBg[colorMode] }}
+                >
+                  <Heading color={colorPrimary[colorMode]}>Music</Heading>
+                </Button>
+              </NextLink>
+            </Flex>
           </Flex>
         </Stack>
       </Container>

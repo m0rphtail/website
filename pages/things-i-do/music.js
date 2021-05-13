@@ -26,22 +26,35 @@ const Gear = () => {
     <>
       <Container>
         <Stack
-          as="main"
-          spacing={8}
-          justifyContent="center"
-          alignItems="flex-start"
-          m="0 auto 4rem auto"
-          maxWidth="100%"
+          direction="column"
+          spacing={10}
+          w="100%"
+          px={4}
+          maxW="700px"
+          alignSelf="center"
         >
-          <Flex
-            flexDirection="column"
-            justifyContent="flex-start"
-            alignItems="flex-start"
-            maxWidth="100%"
-            px={4}
-          >
-           
-          </Flex>
+          <Heading>Music</Heading>
+          <iframe
+            width="100%"
+            height="166"
+            scrolling="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/802861357&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+          ></iframe>
+          <iframe
+            width="100%"
+            height="166"
+            scrolling="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/628337688&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+          ></iframe>
+          <iframe
+            width="100%"
+            height="166"
+            scrolling="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/626351553&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+          ></iframe>
         </Stack>
       </Container>
     </>

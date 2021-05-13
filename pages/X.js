@@ -8,6 +8,7 @@ import {
   Text,
   Spacer,
   HStack,
+  Box,
 } from "@chakra-ui/react";
 import Container from "../components/Container";
 
@@ -16,6 +17,10 @@ const Gear = () => {
   const colorPrimary = {
     light: "linear(to-br, #3399ff,#ff3399)",
     dark: "linear(to-br, #33ccff,#ff55cc)",
+  };
+  const colorHeading = {
+    light: "blackAlpha.800",
+    dark: "whiteAlpha.900",
   };
   const colorSecondary = {
     light: "gray.700",
@@ -31,72 +36,230 @@ const Gear = () => {
           justifyContent="center"
           alignItems="flex-start"
           m="0 auto 4rem auto"
-          maxWidth="100%"
+          maxWidth="700px"
         >
           <Flex
             flexDirection="column"
             justifyContent="flex-start"
             alignItems="flex-start"
-            maxWidth="100%"
+            maxWidth="700px"
             px={4}
           >
             <Heading
-              mb={5}
-              mt={5}
+              mb={2}
               as="h1"
               size="2xl"
               bgGradient={colorPrimary[colorMode]}
               bgClip="text"
               padding="5px"
             >
-              Xtras
+              Gear
             </Heading>
-            <Heading mt={5} mb={5}>
+            <Text color={colorSecondary[colorMode]}>
+              Productivity is directly associated with selecting the right
+              software and hardware. Here is a list of all the gear I use on a
+              day to day basis.
+            </Text>
+            <Heading mt={5} mb={2} color={colorHeading[colorMode]} size="lg">
               Computer Specs:
             </Heading>
-            <Stack minWidth="100%">
-              <Flex>
-                <Text fontSize="xl" fontWeight="bold">
-                  Motherboard:
-                </Text>
-                <Spacer />
-                <Text>MSI B450M PRO-VDH MAX</Text>
-              </Flex>
-              <Flex>
-                <Text fontSize="xl" fontWeight="bold">
-                  CPU:
-                </Text>
-                <Spacer />
-                <Text>AMD Ryzen 5 3600</Text>
-              </Flex>
-              <Flex>
-                <Text fontSize="xl" fontWeight="bold">
-                  RAM:
-                </Text>
-                <Spacer />
-                <Text>Corsair 3000MHz 16GB</Text>
-              </Flex>
-              <Flex>
-                <Text fontSize="xl" fontWeight="bold">
-                  GPU:
-                </Text>
-                <Spacer />
-                <Text>Nvidia GTX 1650 Super</Text>
-              </Flex>
-              <Flex>
-                <Text fontSize="xl" fontWeight="bold">
-                  Power Supply:
-                </Text>
-                <Spacer />
-                <Text>CoolerMaster MWE 450</Text>
-              </Flex>
-              <Flex>
-                <Text fontSize="xl" fontWeight="bold">
-                  CPU:
-                </Text>
-                <Spacer />
-                <Text>AMD Ryzen 5 3600</Text>
-              </Flex>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
+                OS :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>Arch Linux</Text>
+            </Stack>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
+                MotherBoard :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>MS-7A38 8.0</Text>
+            </Stack>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl" >
+                CPU :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>AMD Ryzen 5 3600</Text>
+            </Stack>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl" >
+                RAM :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>16GB Corsair 3000MHz</Text>
+            </Stack>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
+                GPU :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>Nvidia GTX 1650 Super</Text>
+            </Stack>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl" >
+                Monitors :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>Dell D2015H</Text>
+            </Stack>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
+                KeyBoard :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>Logitech K380</Text>
+            </Stack>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
+                Mouse :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>Logitech Pebble M350</Text>
+            </Stack>
+            <Heading mt={5} mb={2} color={colorHeading[colorMode]} size="lg">
+              Software :
+            </Heading>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
+                Code Editor :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>VS Code</Text>
+            </Stack>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
+                API Testing :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>Postman</Text>
+            </Stack>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
+                Pentesting :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>Kali Linux</Text>
+            </Stack>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
+                Browser :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>Google Chrome</Text>
+            </Stack>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
+                Screen Recorder :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>OBS </Text>
+            </Stack>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
+                Video Editor :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>Kdenlive | DaVinci Resolve</Text>
+            </Stack>
+            <Stack
+              flexDirection="row"
+              justifyContent="flex-start"
+              alignItems="flex-start"
+              minWidth="100%"
+              maxWidth="700px"
+            >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
+                Terminal :
+              </Text>
+              <Spacer />
+              <Text color={colorSecondary[colorMode]}>Alacritty</Text>
             </Stack>
           </Flex>
         </Stack>

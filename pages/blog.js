@@ -4,7 +4,6 @@ import {
   Heading,
   Flex,
   Stack,
-  Text,
   Input,
   InputGroup,
   InputRightElement,
@@ -53,7 +52,6 @@ export default function Blog({ posts }) {
             alignItems="flex-start"
             maxWidth="700px"
             px={4}
-            minH="100vh"
           >
             <Heading
               letterSpacing="tight"
@@ -65,7 +63,7 @@ export default function Blog({ posts }) {
               padding="5px"
             >
               Blog
-            </Heading>{" "}
+            </Heading>
             <InputGroup mb={4} mr={4} w="100%">
               <Input
                 aria-label="Search by title"

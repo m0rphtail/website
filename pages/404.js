@@ -26,17 +26,17 @@ useEffect(()=>{
   return (
     <>
     <Head>
-        <title>Oops!</title>
+        <title>oof!</title>
     </Head>
       <Center h="500px">
         <Flex
         flexDirection='column'
         alignItems='center'
         >
-          <Heading bgGradient={colorPrimary[colorMode]} bgClip="text" as="h1" size="4xl" mb={5}>Oopsie!</Heading>
+          <Heading bgGradient={colorPrimary[colorMode]} bgClip="text" as="h1" size="4xl" mb={5}>oof!</Heading>
           <Text fontSize="3xl" mb={5} color={colorSecondary[colorMode]}>This page doesn't exist</Text>
           <Text mb={3} color={colorSecondary[colorMode]}>You will be automatically redirected to the Homepage</Text>
-          <Text color={colorSecondary[colorMode]}>or click <Link href="/"><a>here</a></Link></Text>
+          <Text color={colorSecondary[colorMode]}>or click <Link href="/">here</Link></Text>
         </Flex>
       </Center>
     </>

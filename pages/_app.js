@@ -47,6 +47,10 @@ const GlobalStyle = ({ children }) => {
             place-items: center;
           }
           .desktopName {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
             display: block;
             font-size: 7rem;
             color: white;
@@ -77,6 +81,10 @@ const GlobalStyle = ({ children }) => {
               place-items: center;
             }
             .mobileName {
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
               display: block;
               font-size: 3.5rem;
               color: white;

@@ -1,9 +1,7 @@
 import React from "react";
-import { useColorMode, Button, Flex, Stack, ButtonGroup } from "@chakra-ui/react";
+import { useColorMode, Button, Flex, ButtonGroup } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import NextLink from "next/link";
-import { useRouter } from "next/router";
-
 import DarkModeSwitch from "../components/DarkModeSwitch";
 
 const StickyNav = styled(Flex)`
@@ -16,7 +14,6 @@ const StickyNav = styled(Flex)`
 
 const Navigation = () => {
   const { colorMode } = useColorMode();
-  const router = useRouter();
   const colorPrimary = {
     light: "blackAlpha.800",
     dark: "whiteAlpha.900",
@@ -66,6 +63,19 @@ const Navigation = () => {
             Home
           </Button>
         </NextLink>
+        <NextLink href="/about" passHref>
+          <Button
+            color={colorPrimary[colorMode]}
+            as="a"
+            p={[1, 2, 4]}
+            _hover={{
+              bgGradient: navHoverBg[colorMode],
+              color: hoverText[colorMode],
+            }}
+          >
+            About
+          </Button>
+        </NextLink>
         <NextLink href="/blog" passHref>
           <Button
             color={colorPrimary[colorMode]}
@@ -75,7 +85,6 @@ const Navigation = () => {
               bgGradient: navHoverBg[colorMode],
               color: hoverText[colorMode],
             }}
-            _
           >
             Blog
           </Button>

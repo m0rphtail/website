@@ -9,7 +9,7 @@ const StickyNav = styled(Flex)`
   z-index: 10;
   bottom: 0;
   left: 0;
-  box-shadow: 12px 0 0 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 12px 12px 12px 12px rgba(0, 0, 0, 0.15);
 `;
 
 const MobileNavigation = () => {
@@ -40,7 +40,7 @@ const MobileNavigation = () => {
       width="100%"
       bg={navBgColor[colorMode]}
       as="nav"
-      p={4}
+      p={2}
       mt={0}
       mx="auto"
       display={["flex", "none", "none"]}
@@ -54,6 +54,17 @@ const MobileNavigation = () => {
           _hover={{ bgGradient: navActiveBg[colorMode] }}
         >
           Home
+        </Button>
+      </NextLink>
+      <NextLink href="/about" passHref>
+        <Button
+          color={colorPrimary[colorMode]}
+          as="a"
+          variant="ghost"
+          p={[1, 2, 4]}
+          _hover={{ bgGradient: navActiveBg[colorMode] }}
+        >
+          About
         </Button>
       </NextLink>
       <NextLink href="/blog" passHref>

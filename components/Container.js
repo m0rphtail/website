@@ -1,9 +1,7 @@
 import React from 'react'
-import { useColorMode, Flex, Text, Link, IconButton, SimpleGrid, Box } from '@chakra-ui/react'
-
+import { useColorMode, Flex } from '@chakra-ui/react'
 import { Footer } from '../components/Footer'
 import Navigation from '../components/Navigation'
-import MobileNavigation from '../components/MobileNavigation'
 import MobileNavigationTop from '../components/MobileNavigationTop'
 
 
@@ -34,7 +32,6 @@ const Container = ({ children }) => {
         {children}
         <Footer />
       </Flex>
-      <MobileNavigation />
     </>
   )
 }

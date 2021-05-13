@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex,Stack, Link, IconButton, useColorMode } from "@chakra-ui/react";
+import { Flex, Stack, Link, IconButton, useColorMode } from "@chakra-ui/react";
 import {
   FiGithub,
   FiTwitter,
@@ -23,38 +23,38 @@ export const Footer = () => {
   };
   return (
     <>
-        <Stack mt={20} mb={5} spacing={1} direction="row" alignSelf="center">
-        <div>
-          <Link
-            href="https://twitter.com/kshitijchitnis"
-            title="Twitter"
-            isExternal
-          >
-            <IconButton
-              aria-label="Twitter"
-              icon={<FiTwitter />}
-              size="lg"
-              color={borderIcon[colorMode]}
-              variant="ghost"
-              _hover={{
-                bgGradient: footerHoverBg[colorMode],
-                color: "blackAlpha.700",
-              }}
-            />
-          </Link>
-          <Link href="https://github.com/m0rphtail" title="GitHub" isExternal>
-            <IconButton
-              aria-label="GitHub"
-              icon={<FiGithub />}
-              size="lg"
-              color={borderIcon[colorMode]}
-              variant="ghost"
-              _hover={{
-                bgGradient: footerHoverBg[colorMode],
-                color: "blackAlpha.700",
-              }}
-            />
-          </Link>
+      <Stack mt={5} spacing={1} direction="row" alignSelf="center">
+      <Flex>
+        <Link
+          href="https://twitter.com/kshitijchitnis"
+          title="Twitter"
+          isExternal
+        >
+          <IconButton
+            aria-label="Twitter"
+            icon={<FiTwitter />}
+            size="md"
+            color={borderIcon[colorMode]}
+            variant="ghost"
+            _hover={{
+              bgGradient: footerHoverBg[colorMode],
+              color: "blackAlpha.700",
+            }}
+          />
+        </Link>
+        <Link href="https://github.com/m0rphtail" title="GitHub" isExternal>
+          <IconButton
+            aria-label="GitHub"
+            icon={<FiGithub />}
+            size="md"
+            color={borderIcon[colorMode]}
+            variant="ghost"
+            _hover={{
+              bgGradient: footerHoverBg[colorMode],
+              color: "blackAlpha.700",
+            }}
+          />
+        </Link>
           <Link
             href="https://www.linkedin.com/in/kshitijchitnis"
             title="LinkedIn"
@@ -63,7 +63,7 @@ export const Footer = () => {
             <IconButton
               aria-label="LinkedIn"
               icon={<FiLinkedin />}
-              size="lg"
+              size="md"
               color={borderIcon[colorMode]}
               variant="ghost"
               _hover={{
@@ -80,7 +80,7 @@ export const Footer = () => {
             <IconButton
               aria-label="YouTube"
               icon={<FiYoutube />}
-              size="lg"
+              size="md"
               color={borderIcon[colorMode]}
               variant="ghost"
               _hover={{
@@ -89,7 +89,6 @@ export const Footer = () => {
               }}
             />
           </Link>
-          <br/>
           <Link
             href="https://www.instagram.com/jitihsk.sintihc"
             title="Instagram"
@@ -98,7 +97,7 @@ export const Footer = () => {
             <IconButton
               aria-label="Instagram"
               icon={<FiInstagram />}
-              size="lg"
+              size="md"
               color={borderIcon[colorMode]}
               variant="ghost"
               _hover={{
@@ -115,7 +114,7 @@ export const Footer = () => {
             <IconButton
               aria-label="Behance"
               icon={<FaBehance />}
-              size="lg"
+              size="md"
               color={borderIcon[colorMode]}
               variant="ghost"
               _hover={{
@@ -132,7 +131,7 @@ export const Footer = () => {
             <IconButton
               aria-label="SoundCloud"
               icon={<ImSoundcloud />}
-              size="lg"
+              size="md"
               color={borderIcon[colorMode]}
               variant="ghost"
               _hover={{
@@ -145,7 +144,7 @@ export const Footer = () => {
             <IconButton
               aria-label="Email"
               icon={<FiMail />}
-              size="lg"
+              size="md"
               color={borderIcon[colorMode]}
               variant="ghost"
               _hover={{
@@ -154,7 +153,7 @@ export const Footer = () => {
               }}
             />
           </Link>
-        </div>
+          </Flex>
       </Stack>
     </>
   );
