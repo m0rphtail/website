@@ -18,13 +18,11 @@ export default function Index() {
   };
   return (
     <>
-      {" "}
       <div className="desktopContainer">
         <h1 className="desktopName">MØR₽H₸AIL</h1>
       </div>
       <div className="mobileContainer">
-        <h1 className="mobileName">MØR₽H</h1>
-        <h1 className="mobileName">₸AIL</h1>
+        <h1 className="mobileName">MØR₽H₸AIL</h1>
       </div>
       <Container>
         <Head>

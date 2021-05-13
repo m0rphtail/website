@@ -15,7 +15,7 @@ const GlobalStyle = ({ children }) => {
         styles={css`
           ${colorMode === "light" ? prismLightTheme : prismDarkTheme};
           ::selection {
-            background-color: #90CDF4;
+            background-color: #90cdf4;
             color: #fefefe;
           }
           ::-moz-selection {
@@ -31,60 +31,58 @@ const GlobalStyle = ({ children }) => {
             min-height: 100vh;
             background: ${colorMode === "light" ? "white" : "#15161a"};
           }
-          .theCanvas { 
-            top:0;
-            left:0;
-            outline:none;   
-            min-height:600px;
-}
-          .desktopContainer { 
-            display:block;                                
-            mix-blend-mode:exclusion;
-            z-index:1;
-            width:100%;         
-            position:fixed;
-            display:grid;
-            height:100vh;
-            place-items:center;
+          .theCanvas {
+            top: 0;
+            left: 0;
+            outline: none;
+            min-height: 600px;
           }
-          .desktopName {  
-            display:block;        
-            font-size:7rem;
-            color:white;
-            font-weight:bold;
+          .desktopContainer {
+            mix-blend-mode: exclusion;
+            z-index: 1;
+            width: 100%;
+            position: fixed;
+            display: grid;
+            top: 20em;
+            place-items: center;
           }
-          .mobileContainer{
-            display:none;
+          .desktopName {
+            display: block;
+            font-size: 7rem;
+            color: white;
+            font-weight: bold;
+          }
+          .mobileContainer {
+            display: none;
           }
           .mobileName {
-            display:none;
+            display: none;
           }
 
-          @media screen and (max-width:768px){
-            .desktopContainer{
-              display:none;
+          @media screen and (max-width: 768px) {
+            .desktopContainer {
+              display: none;
             }
-            .desktopName{
-              display:none;
+            .desktopName {
+              display: none;
             }
-            .mobileContainer { 
-            display:block;                                
-            mix-blend-mode:exclusion;
-            z-index:1;
-            width:100%;         
-            position:fixed;
-            display:grid;
-            top:12rem;
-            place-items:center;
+            .mobileContainer {
+              display: block;
+              mix-blend-mode: exclusion;
+              z-index: 1;
+              width: 100%;
+              position: fixed;
+              display: grid;
+              top: 20em;
+              place-items: center;
+            }
+            .mobileName {
+              display: block;
+              font-size: 3.5rem;
+              color: white;
+              font-weight: bold;
+            }
           }
-            .mobileName{
-              display:block;
-              font-size:6rem;
-              color:white;
-              font-weight:bold;
-            }
-          }
-          
         `}
       />
       {children}
