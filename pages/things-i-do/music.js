@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  useColorMode,
-  Flex,
-  Stack,
-  Heading,
-  Divider,
-  Text,
-  Spacer,
-  HStack,
-} from "@chakra-ui/react";
+import { useColorMode, Flex, Stack, Heading } from "@chakra-ui/react";
 import Container from "../../components/Container";
 
 const Gear = () => {
@@ -16,10 +7,6 @@ const Gear = () => {
   const colorPrimary = {
     light: "linear(to-br, #3399ff,#ff3399)",
     dark: "linear(to-br, #33ccff,#ff55cc)",
-  };
-  const colorSecondary = {
-    light: "gray.700",
-    dark: "gray.400",
   };
 
   return (

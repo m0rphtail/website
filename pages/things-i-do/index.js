@@ -1,15 +1,6 @@
 import { Button } from "@chakra-ui/button";
 import { useColorMode } from "@chakra-ui/color-mode";
-import {
-  Flex,
-  Grid,
-  GridItem,
-  Heading,
-  Stack,
-  Text,
-  Box,
-  Spacer,
-} from "@chakra-ui/layout";
+import { Flex, Heading, Stack, Text, Spacer } from "@chakra-ui/layout";
 import Head from "next/head";
 import NextLink from "next/link";
 import Container from "../../components/Container";

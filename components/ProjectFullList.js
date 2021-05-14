@@ -7,12 +7,10 @@ import {
   Flex,
   Box,
   Link,
-  Icon,
   InputGroup,
   Input,
   InputRightElement,
   SimpleGrid,
-  Heading,
 } from "@chakra-ui/react";
 import { ExternalLinkIcon, StarIcon, SearchIcon } from "@chakra-ui/icons";
 
@@ -100,16 +98,9 @@ const ProjectListFull = () => {
         <SimpleGrid columns={1} spacing="20px">
           <ProjectItem
             key="loading-1"
-            name="---"
+            name="Loading ..."
             star_count="---"
-            desc="---"
-            language="---"
-          ></ProjectItem>
-          <ProjectItem
-            key="loading-2"
-            name="---"
-            star_count="---"
-            desc="---"
+            desc="Please Wait"
             language="---"
           ></ProjectItem>
         </SimpleGrid>

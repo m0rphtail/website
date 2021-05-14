@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useColorMode, Flex, Heading, IconButton } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { useColorMode, Flex, Heading } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 

@@ -4,11 +4,8 @@ import {
   Flex,
   Stack,
   Heading,
-  Divider,
   Text,
   Spacer,
-  HStack,
-  Box,
 } from "@chakra-ui/react";
 import Container from "../components/Container";
 
@@ -96,7 +93,7 @@ const Gear = () => {
               minWidth="100%"
               maxWidth="700px"
             >
-              <Text color={colorSecondary[colorMode]} fontSize="xl" >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
                 CPU :
               </Text>
               <Spacer />
@@ -109,11 +106,13 @@ const Gear = () => {
               minWidth="100%"
               maxWidth="700px"
             >
-              <Text color={colorSecondary[colorMode]} fontSize="xl" >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
                 RAM :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>16GB Corsair 3000MHz</Text>
+              <Text color={colorSecondary[colorMode]}>
+                16GB Corsair 3000MHz
+              </Text>
             </Stack>
             <Stack
               flexDirection="row"
@@ -126,7 +125,9 @@ const Gear = () => {
                 GPU :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>Nvidia GTX 1650 Super</Text>
+              <Text color={colorSecondary[colorMode]}>
+                Nvidia GTX 1650 Super
+              </Text>
             </Stack>
             <Stack
               flexDirection="row"
@@ -135,7 +136,7 @@ const Gear = () => {
               minWidth="100%"
               maxWidth="700px"
             >
-              <Text color={colorSecondary[colorMode]} fontSize="xl" >
+              <Text color={colorSecondary[colorMode]} fontSize="xl">
                 Monitors :
               </Text>
               <Spacer />
@@ -165,7 +166,9 @@ const Gear = () => {
                 Mouse :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>Logitech Pebble M350</Text>
+              <Text color={colorSecondary[colorMode]}>
+                Logitech Pebble M350
+              </Text>
             </Stack>
             <Heading mt={5} mb={2} color={colorHeading[colorMode]} size="lg">
               Software :
@@ -246,7 +249,9 @@ const Gear = () => {
                 Video Editor :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>Kdenlive | DaVinci Resolve</Text>
+              <Text color={colorSecondary[colorMode]}>
+                Kdenlive | DaVinci Resolve
+              </Text>
             </Stack>
             <Stack
               flexDirection="row"

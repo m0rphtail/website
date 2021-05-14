@@ -2,7 +2,6 @@ import React from "react";
 import { useColorMode, Button, Flex } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import NextLink from "next/link";
-import { useRouter } from "next/router";
 
 const StickyNav = styled(Flex)`
   position: sticky;
@@ -14,7 +13,6 @@ const StickyNav = styled(Flex)`
 
 const MobileNavigation = () => {
   const { colorMode } = useColorMode();
-  const router = useRouter();
   const colorPrimary = {
     light: "blackAlpha.800",
     dark: "whiteAlpha.900",

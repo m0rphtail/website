@@ -1,14 +1,17 @@
-import { useRef,useState } from "react";
-import * as THREE from 'three';
+import { useRef, useState } from "react";
+import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { TextureLoader } from "three";
 
 export default function Sphere() {
   const mesh = useRef();
-  const [vec] = useState(() => new THREE.Vector3())
+  const [vec] = useState(() => new THREE.Vector3());
   useFrame((state) => {
     mesh.current.rotation.y += 0.005;
-    state.camera.position.lerp(vec.set(state.mouse.x * 5, state.mouse.y * 5, 5),0.05);
+    state.camera.position.lerp(
+      vec.set(state.mouse.x * 5, state.mouse.y * 5, 5),
+      0.05
+    );
     state.camera.lookAt(0, 0, 0);
   });
 

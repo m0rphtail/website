@@ -1,31 +1,15 @@
 import React from "react";
-import {
-  useColorMode,
-  Flex,
-  Stack,
-  Heading,
-  Button,
-  Divider,
-  Text,
-  Spacer,
-  HStack,
-  SimpleGrid,
-  Box,
-} from "@chakra-ui/react";
+import { useColorMode, Stack, Heading, Button } from "@chakra-ui/react";
 import Container from "../../components/Container";
 import ProjectListFull from "../../components/ProjectFullList";
 import { ImGithub } from "react-icons/im";
-import Link from 'next/link'
+import Link from "next/link";
 
 const Gear = () => {
   const { colorMode } = useColorMode();
   const colorPrimary = {
     light: "linear(to-br, #3399ff,#ff3399)",
     dark: "linear(to-br, #33ccff,#ff55cc)",
-  };
-  const colorSecondary = {
-    light: "gray.700",
-    dark: "gray.400",
   };
 
   return (

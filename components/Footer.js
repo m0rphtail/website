@@ -24,37 +24,37 @@ export const Footer = () => {
   return (
     <>
       <Stack mt={5} spacing={1} direction="row" alignSelf="center">
-      <Flex>
-        <Link
-          href="https://twitter.com/kshitijchitnis"
-          title="Twitter"
-          isExternal
-        >
-          <IconButton
-            aria-label="Twitter"
-            icon={<FiTwitter />}
-            size="md"
-            color={borderIcon[colorMode]}
-            variant="ghost"
-            _hover={{
-              bgGradient: footerHoverBg[colorMode],
-              color: "blackAlpha.700",
-            }}
-          />
-        </Link>
-        <Link href="https://github.com/m0rphtail" title="GitHub" isExternal>
-          <IconButton
-            aria-label="GitHub"
-            icon={<FiGithub />}
-            size="md"
-            color={borderIcon[colorMode]}
-            variant="ghost"
-            _hover={{
-              bgGradient: footerHoverBg[colorMode],
-              color: "blackAlpha.700",
-            }}
-          />
-        </Link>
+        <Flex>
+          <Link
+            href="https://twitter.com/kshitijchitnis"
+            title="Twitter"
+            isExternal
+          >
+            <IconButton
+              aria-label="Twitter"
+              icon={<FiTwitter />}
+              size="md"
+              color={borderIcon[colorMode]}
+              variant="ghost"
+              _hover={{
+                bgGradient: footerHoverBg[colorMode],
+                color: "blackAlpha.700",
+              }}
+            />
+          </Link>
+          <Link href="https://github.com/m0rphtail" title="GitHub" isExternal>
+            <IconButton
+              aria-label="GitHub"
+              icon={<FiGithub />}
+              size="md"
+              color={borderIcon[colorMode]}
+              variant="ghost"
+              _hover={{
+                bgGradient: footerHoverBg[colorMode],
+                color: "blackAlpha.700",
+              }}
+            />
+          </Link>
           <Link
             href="https://www.linkedin.com/in/kshitijchitnis"
             title="LinkedIn"
@@ -153,7 +153,7 @@ export const Footer = () => {
               }}
             />
           </Link>
-          </Flex>
+        </Flex>
       </Stack>
     </>
   );
