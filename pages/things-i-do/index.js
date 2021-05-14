@@ -67,9 +67,9 @@ export default function Index() {
               Things I do
             </Heading>
             <Text color={colorSecondary[colorMode]}>
-              There are tonnes of things that I am curious about and keep
-              trying them out and learning various new things, but these are the
-              things I spend most of my time on.
+              There are tons of things that I am curious about and keep trying
+              them out and learning various new things, but these are the things
+              I spend most of my time on.
             </Text>
             <Flex mt={5} w="100%" h="200px">
               <NextLink href="/things-i-do/code">
@@ -77,7 +77,7 @@ export default function Index() {
                   w="100%"
                   h="100%"
                   bgGradient={Bg[colorMode]}
-                  _hover={{ bgGradient: hoverBg[colorMode]}}
+                  _hover={{ bgGradient: hoverBg[colorMode] }}
                   animation=""
                 >
                   <Heading color={colorPrimary[colorMode]}>Code</Heading>

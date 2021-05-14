@@ -11,6 +11,10 @@ import Container from '../components/Container'
 
 export default function Index() {
   const { colorMode } = useColorMode()
+  const colorPrimary = {
+    light: "linear(to-br, #3399ff,#ff3399)",
+    dark: "linear(to-br, #33ccff,#ff55cc)",
+  };
   const colorSecondary = {
     light: 'gray.700',
     dark: 'gray.400'
@@ -18,7 +22,7 @@ export default function Index() {
   return (
     <Container>
       <Head>
-        <title>Home</title>
+        <title>About</title>
       </Head>
       <Stack
         as="main"
@@ -35,7 +39,7 @@ export default function Index() {
           maxWidth="700px"
           px={4}
         >
-          <Heading mb={2}>Hi, I'm Kshitij Chitnis</Heading>
+          <Heading mb={2} pb={3} size="2xl" bgGradient={colorPrimary[colorMode]} bgClip="text">Hi, I'm Kshitij Chitnis</Heading>
           <Text color={colorSecondary[colorMode]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ante nunc, finibus sit amet purus quis, congue vulputate ipsum. Phasellus lobortis bibendum orci, quis imperdiet lectus imperdiet porttitor.</Text>
         </Flex>
       </Stack>

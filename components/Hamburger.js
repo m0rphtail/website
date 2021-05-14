@@ -8,7 +8,7 @@ import {
   DrawerCloseButton,
   DrawerHeader,
   Button,
-  Stack
+  Stack,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useRef } from "react";
@@ -58,34 +58,34 @@ const Hamburger = () => {
         <DrawerContent>
           <DrawerCloseButton color={iconColor[colorMode]} />
           <DrawerHeader color={iconColor[colorMode]}>Menu</DrawerHeader>
-          <Stack>
+          <Stack direction="column" spacing={2}>
             <NextLink href="/" passHref>
-              <Button as="a" p={[1, 2, 4]} variant="link">
+              <Button as="a" py={5} variant="link" fontSize="3xl">
                 Home
               </Button>
             </NextLink>
             <NextLink href="/about" passHref>
-              <Button as="a" p={[1, 2, 4]} variant="link">
+              <Button as="a" py={5} variant="link" fontSize="3xl">
                 About
               </Button>
             </NextLink>
             <NextLink href="/blog" passHref>
-              <Button as="a" p={[1, 2, 4]} variant="link">
+              <Button as="a" py={5} variant="link" fontSize="3xl">
                 Blog
               </Button>
             </NextLink>
             <NextLink href="/things-i-do" passHref>
-              <Button as="a" p={[1, 2, 4]} variant="link">
+              <Button as="a" py={5} variant="link" fontSize="3xl">
                 Things I do
               </Button>
             </NextLink>
             <NextLink href="/resume" passHref>
-              <Button as="a" p={[1, 2, 4]} variant="link">
+              <Button as="a" py={5} variant="link" fontSize="3xl">
                 Resume
               </Button>
             </NextLink>
             <NextLink href="/X" passHref>
-              <Button as="a" p={[1, 2, 4]} variant="link">
+              <Button as="a" py={5} variant="link" fontSize="3xl">
                 X
               </Button>
             </NextLink>

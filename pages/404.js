@@ -31,12 +31,13 @@ useEffect(()=>{
       <Center h="500px">
         <Flex
         flexDirection='column'
-        alignItems='center'
+        align='center'
         >
-          <Heading bgGradient={colorPrimary[colorMode]} bgClip="text" as="h1" size="4xl" mb={5}>oof!</Heading>
+          <Heading bgGradient={colorPrimary[colorMode]} bgClip="text" as="h1" size="4xl" mb={5}>☹☹f!</Heading>
           <Text fontSize="3xl" mb={5} color={colorSecondary[colorMode]}>This page doesn't exist</Text>
-          <Text mb={3} color={colorSecondary[colorMode]}>You will be automatically redirected to the Homepage</Text>
-          <Text color={colorSecondary[colorMode]}>or click <Link href="/">here</Link></Text>
+          <Text px={10} justifySelf="center" color={colorSecondary[colorMode]}>You will be automatically</Text>
+          <Text px={10} justifySelf="center" color={colorSecondary[colorMode]}>redirected to the Homepage</Text>
+          <Text color={colorSecondary[colorMode]}>or <Link bgGradient={colorPrimary[colorMode]} bgClip="text" fontWeight="bold" fontSize="xl" href="/">click here</Link></Text>
         </Flex>
       </Center>
     </>

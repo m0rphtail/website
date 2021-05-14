@@ -4,12 +4,18 @@ import {
   Flex,
   Stack,
   Heading,
+  Button,
   Divider,
   Text,
   Spacer,
   HStack,
+  SimpleGrid,
+  Box,
 } from "@chakra-ui/react";
 import Container from "../../components/Container";
+import ProjectListFull from "../../components/ProjectFullList";
+import { ImGithub } from "react-icons/im";
+import Link from 'next/link'
 
 const Gear = () => {
   const { colorMode } = useColorMode();
@@ -30,18 +36,26 @@ const Gear = () => {
           spacing={8}
           justifyContent="center"
           alignItems="flex-start"
-          m="0 auto 4rem auto"
-          maxWidth="100%"
+          m="0 auto 0 auto"
+          maxWidth="700px"
         >
-          <Flex
-            flexDirection="column"
-            justifyContent="flex-start"
-            alignItems="flex-start"
-            maxWidth="100%"
-            px={4}
+          <Heading bgGradient={colorPrimary[colorMode]} bgClip="text">
+            Code
+          </Heading>
+          <Link
+            href="https://github.com/m0rphtail?tab=repositories&q=&type=&language=&sort=stargazers"
+            title="GitHub"
+            isExternal
           >
-           
-          </Flex>
+            <Button
+              rightIcon={<ImGithub />}
+              colorScheme="gray"
+              variant="outline"
+            >
+              View on GitHub
+            </Button>
+          </Link>
+          <ProjectListFull />
         </Stack>
       </Container>
     </>

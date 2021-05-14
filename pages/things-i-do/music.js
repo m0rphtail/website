@@ -33,7 +33,11 @@ const Gear = () => {
           maxW="700px"
           alignSelf="center"
         >
-          <Heading>Music</Heading>
+          <Flex>
+            <Heading bgGradient={colorPrimary[colorMode]} bgClip="text">
+              Music
+            </Heading>
+          </Flex>
           <iframe
             width="100%"
             height="166"
