@@ -38,6 +38,7 @@ const Gear = () => {
           alignItems="flex-start"
           m="0 auto 0 auto"
           maxWidth="700px"
+          px={4}
         >
           <Heading bgGradient={colorPrimary[colorMode]} bgClip="text">
             Code

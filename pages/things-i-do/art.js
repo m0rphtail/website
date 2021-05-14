@@ -56,34 +56,34 @@ const Gear = () => {
               Art
             </Heading>
             <Flex mt={5} w="100%">
-              <Image w="100%" src="/images/man.png" borderRadius="2xl"/> 
+              <Image w="100%" src="/images/man.webp" borderRadius="2xl"/> 
             </Flex>
             <Flex w="100%">
-              <Image m={3} w="49%" src="/images/egyptian.png" borderRadius="2xl"/>
+              <Image m={3} w="49%" src="/images/egyptian.webp" borderRadius="2xl"/>
               <Flex alignItems="flex-end" direction="column" w="100%">
-                <Image m={3} w="95%" src="/images/mood.jpg" borderRadius="2xl"/>
+                <Image m={3} w="95%" src="/images/mood.webp" borderRadius="2xl"/>
                 <Spacer/>
-                <Image m={3} w="95%" src="/images/windows.png" borderRadius="2xl"/>
+                <Image m={3} w="95%" src="/images/windows.webp" borderRadius="2xl"/>
               </Flex>
             </Flex>
-            <Flex mt={5} w="100%">
-              <Image w="100%" src="/images/monster.png" borderRadius="2xl"/> 
+            <Flex mt={1} w="100%">
+              <Image w="100%" src="/images/monster.webp" borderRadius="2xl"/> 
             </Flex>
             <Flex mt={5} w="100%">
-              <Image w="100%" src="/images/tunnel.png" borderRadius="2xl"/> 
+              <Image w="100%" src="/images/tunnel.webp" borderRadius="2xl"/> 
             </Flex>
             <Flex mt={5} w="100%">
             <Flex alignItems="flex-end" direction="column" w="100%">
-                <Image m={3} w="95%" src="/images/x.png" borderRadius="2xl"/>
+                <Image m={3} w="95%" src="/images/x.webp" borderRadius="2xl"/>
                 <Spacer/>
-                <Image m={3} w="95%" src="/images/blobs.png" borderRadius="2xl"/>
+                <Image m={3} w="95%" src="/images/blobs.webp" borderRadius="2xl"/>
               </Flex>
-              <Image w="75%" src="/images/desert1.png" borderRadius="2xl"/> 
+              <Image w="75%" src="/images/desert1.webp" borderRadius="2xl"/> 
             </Flex>
             <Heading mt={5} mb={2} size="lg">
               Animations :
             </Heading>
-            <Stack direction="column" w="100%">
+            <Stack direction="column" w="100%" spacing={5}>
               <iframe src="/images/vids/falling.m4v#toolbar=0" width="100%" height="300px" align="stretch"/>
               <iframe src="/images/vids/morphtail1.m4v#toolbar=0" width="100%" height="300px" align="stretch"/>
               <iframe src="/images/vids/vaporwave.m4v#toolbar=0" width="100%" height="300px" align="stretch"/>

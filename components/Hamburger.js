@@ -84,9 +84,9 @@ const Hamburger = () => {
                 Resume
               </Button>
             </NextLink>
-            <NextLink href="/X" passHref>
+            <NextLink href="/gear" passHref>
               <Button as="a" py={5} variant="link" fontSize="3xl">
-                X
+                Gear
               </Button>
             </NextLink>
           </Stack>

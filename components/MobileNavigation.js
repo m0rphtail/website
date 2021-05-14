@@ -100,7 +100,7 @@ const MobileNavigation = () => {
           Resume
         </Button>
       </NextLink>
-      <NextLink href="/X" passHref>
+      <NextLink href="/gear" passHref>
         <Button
           color={colorPrimary[colorMode]}
           as="a"
@@ -108,7 +108,7 @@ const MobileNavigation = () => {
           p={[1, 2, 4]}
           _hover={{ bgGradient: navActiveBg[colorMode] }}
         >
-          X
+          Gear
         </Button>
       </NextLink>
     </StickyNav>

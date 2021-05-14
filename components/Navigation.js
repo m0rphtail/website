@@ -115,7 +115,7 @@ const Navigation = () => {
             Resume
           </Button>
         </NextLink>
-        <NextLink href="/X" passHref>
+        <NextLink href="/gear" passHref>
           <Button
             color={colorPrimary[colorMode]}
             as="a"
@@ -125,7 +125,7 @@ const Navigation = () => {
               color: hoverText[colorMode],
             }}
           >
-            X
+            Gear
           </Button>
         </NextLink>
       </ButtonGroup>

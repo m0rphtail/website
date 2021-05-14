@@ -55,7 +55,7 @@ const Gear = () => {
             >
               Resume
             </Heading>
-            <Divider w="700px" mb={10}/>
+            <Divider maxW="100%" mb={10}/>
             <Text color={colorSecondary[colorMode]}>Haven't made it yet, Check back later 🙂</Text>
           </Flex>
         </Stack>
