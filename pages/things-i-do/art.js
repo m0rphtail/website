@@ -8,6 +8,7 @@ import {
   Image,
 } from "@chakra-ui/react";
 import Container from "../../components/Container";
+import { NextSeo } from "next-seo";
 
 const Gear = () => {
   const { colorMode } = useColorMode();
@@ -18,6 +19,23 @@ const Gear = () => {
 
   return (
     <>
+      <NextSeo
+        title="Art - MorphTail"
+        description="A personal website and resume website for Kshitij Chitnis, a developer, creator and student."
+        canonical="https://morphtail.vercel.app"
+        openGraph={{
+          url: "https://morphtail.vercel.app",
+          title: "Art - MorphTail",
+          description:
+            "A personal website and resume website for Kshitij Chitnis, a developer, creator and student.",
+          site_name: "MorphTail",
+        }}
+        twitter={{
+          handle: "@kshitijchitnis",
+          site: "@kshitijchitnis",
+          cardType: "summary_large_image",
+        }}
+      />
       <Container>
         <Stack
           as="main"

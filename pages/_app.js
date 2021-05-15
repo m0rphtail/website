@@ -5,6 +5,7 @@ import { Global, css } from "@emotion/react";
 import { prismLightTheme, prismDarkTheme } from "../styles/prism";
 import MDXComponents from "../components/MDXComponents";
 import { Chakra } from "../src/Chakra";
+import { DefaultSeo } from "next-seo";
 
 const GlobalStyle = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -100,19 +101,38 @@ const GlobalStyle = ({ children }) => {
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Chakra cookies={pageProps.cookies}>
-      <ColorModeProvider
-        options={{
-          useSystemColorMode: false,
+    <>
+      <DefaultSeo
+        canonical="https://morphtail.vercel.app"
+        openGraph={{
+          type: "website",
+          locale: "en_US",
+          url: "https://morphtail.vercel.app",
+          title: "MorphTail",
+          description:
+            "A personal website and resume website for Kshitij Chitnis, a developer, creator and student.",
+          site_name: "MorphTail",
         }}
-      >
-        <MDXProvider components={MDXComponents}>
-          <GlobalStyle>
-            <Component {...pageProps} />
-          </GlobalStyle>
-        </MDXProvider>
-      </ColorModeProvider>
-    </Chakra>
+        twitter={{
+          handle: "@kshitijchitnis",
+          site: "@kshitijchitnis",
+          cardType: "summary_large_image",
+        }}
+      />
+      <Chakra cookies={pageProps.cookies}>
+        <ColorModeProvider
+          options={{
+            useSystemColorMode: false,
+          }}
+        >
+          <MDXProvider components={MDXComponents}>
+            <GlobalStyle>
+              <Component {...pageProps} />
+            </GlobalStyle>
+          </MDXProvider>
+        </ColorModeProvider>
+      </Chakra>
+    </>
   );
 }
 

@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/button";
 import { useColorMode } from "@chakra-ui/color-mode";
 import { Flex, Heading, Stack, Text, Spacer } from "@chakra-ui/layout";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 import NextLink from "next/link";
 import Container from "../../components/Container";
 
@@ -26,11 +26,24 @@ export default function Index() {
 
   return (
     <>
+      <NextSeo
+        title="Things I do - MorphTail"
+        description="A personal website and resume website for Kshitij Chitnis, a developer, creator and student."
+        canonical="https://morphtail.vercel.app"
+        openGraph={{
+          url: "https://morphtail.vercel.app",
+          title: "Things I do - MorphTail",
+          description:
+            "A personal website and resume website for Kshitij Chitnis, a developer, creator and student.",
+          site_name: "MorphTail",
+        }}
+        twitter={{
+          handle: "@kshitijchitnis",
+          site: "@kshitijchitnis",
+          cardType: "summary_large_image",
+        }}
+      />
       <Container>
-        <Head>
-          <title>MorphTail | X</title>
-        </Head>
-
         <Stack
           as="main"
           spacing={8}

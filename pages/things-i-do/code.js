@@ -4,6 +4,7 @@ import Container from "../../components/Container";
 import ProjectListFull from "../../components/ProjectFullList";
 import { ImGithub } from "react-icons/im";
 import Link from "next/link";
+import { NextSeo } from "next-seo";
 
 const Gear = () => {
   const { colorMode } = useColorMode();
@@ -14,6 +15,23 @@ const Gear = () => {
 
   return (
     <>
+      <NextSeo
+        title="Code - MorphTail"
+        description="A personal website and resume website for Kshitij Chitnis, a developer, creator and student."
+        canonical="https://morphtail.vercel.app"
+        openGraph={{
+          url: "https://morphtail.vercel.app",
+          title: "Code - MorphTail",
+          description:
+            "A personal website and resume website for Kshitij Chitnis, a developer, creator and student.",
+          site_name: "MorphTail",
+        }}
+        twitter={{
+          handle: "@kshitijchitnis",
+          site: "@kshitijchitnis",
+          cardType: "summary_large_image",
+        }}
+      />
       <Container>
         <Stack
           as="main"

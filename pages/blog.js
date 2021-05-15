@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Head from "next/head";
 import {
   Heading,
   Flex,
@@ -13,6 +12,7 @@ import Container from "../components/Container";
 import { getAllFilesFrontMatter } from "../lib/mdx";
 import BlogPost from "../components/BlogPost";
 import { SearchIcon } from "@chakra-ui/icons";
+import { NextSeo } from "next-seo";
 
 export default function Blog({ posts }) {
   const { colorMode } = useColorMode();
@@ -34,9 +34,23 @@ export default function Blog({ posts }) {
 
   return (
     <>
-      <Head>
-        <title>Blog</title>
-      </Head>
+      <NextSeo
+        title="Blog - MorphTail"
+        description="A personal website and resume website for Kshitij Chitnis, a developer, creator and student."
+        canonical="https://morphtail.vercel.app"
+        openGraph={{
+          url: "https://morphtail.vercel.app",
+          title: "Blog - MorphTail",
+          description:
+            "A personal website and resume website for Kshitij Chitnis, a developer, creator and student.",
+          site_name: "MorphTail",
+        }}
+        twitter={{
+          handle: "@kshitijchitnis",
+          site: "@kshitijchitnis",
+          cardType: "summary_large_image",
+        }}
+      />
       <Container>
         <Stack
           as="main"

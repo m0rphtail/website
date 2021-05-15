@@ -13,11 +13,11 @@ export default function BlogLayout({ children, frontMatter }) {
     dark: "gray.400",
   };
   const router = useRouter();
-  const slug = router.asPath.replace("/blog", "");
+  const slug = router.asPath.replace("/blog/", "");
   return (
     <Container>
       <Head>
-        <title>Blog - {slug}</title>
+        <title>Blog - {frontMatter.title} - MorphTail</title>
       </Head>
       <Stack
         as="article"
