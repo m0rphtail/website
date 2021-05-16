@@ -15,7 +15,7 @@ const Gear = () => {
       <NextSeo
         title="Music - MorphTail"
         description="A personal website and resume website for Kshitij Chitnis, a developer, creator and student."
-        canonical="https://morphtail.vercel.app"
+        canonical="https://morphtail.vercel.app/things-i-do/music"
         openGraph={{
           url: "https://morphtail.vercel.app",
           title: "Music - MorphTail",
