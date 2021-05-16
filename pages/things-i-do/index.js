@@ -28,13 +28,13 @@ export default function Index() {
     <>
       <NextSeo
         title="Things I do - MorphTail"
-        description="A personal website and resume website for Kshitij Chitnis, a developer, creator and student."
+        description="A personal portfolio and resume website for Kshitij Chitnis, a developer, creator and student."
         canonical="https://morphtail.vercel.app/things-i-do"
         openGraph={{
           url: "https://morphtail.vercel.app",
           title: "Things I do - MorphTail",
           description:
-            "A personal website and resume website for Kshitij Chitnis, a developer, creator and student.",
+            "A personal portfolio and resume website for Kshitij Chitnis, a developer, creator and student.",
           site_name: "MorphTail",
         }}
         twitter={{
