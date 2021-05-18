@@ -6,6 +6,7 @@ import {
   Heading,
   Text,
   Spacer,
+  Link,
 } from "@chakra-ui/react";
 import Container from "../components/Container";
 import { NextSeo } from "next-seo";
@@ -73,7 +74,7 @@ const Gear = () => {
             <Text color={colorSecondary[colorMode]}>
               Productivity is directly associated with selecting the right
               software and hardware. Here is a list of all the gear I use on a
-              day to day basis.
+              day to day basis. If you purchase any items through the links below I may earn a small commission.
             </Text>
             <Heading mt={5} mb={2} color={colorHeading[colorMode]} size="lg">
               Computer Specs:
@@ -89,7 +90,9 @@ const Gear = () => {
                 OS :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>Arch Linux</Text>
+              <Link href="https://archlinux.org/" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>Arch Linux</Text>
+              </Link>
             </Stack>
             <Stack
               flexDirection="row"
@@ -102,7 +105,9 @@ const Gear = () => {
                 MotherBoard :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>MS-7A38 8.0</Text>
+              <Link href="https://amzn.to/3yg1lIx" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>MS-7A38 8.0</Text>
+              </Link>
             </Stack>
             <Stack
               flexDirection="row"
@@ -115,7 +120,9 @@ const Gear = () => {
                 CPU :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>AMD Ryzen 5 3600</Text>
+              <Link href="https://amzn.to/33RrTBV" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>AMD Ryzen 5 3600</Text>
+              </Link>
             </Stack>
             <Stack
               flexDirection="row"
@@ -128,9 +135,11 @@ const Gear = () => {
                 RAM :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>
-                16GB Corsair 3000MHz
-              </Text>
+              <Link href="https://amzn.to/3ftLNrQ" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>
+                  16GB Corsair 3000MHz
+                </Text>
+              </Link>
             </Stack>
             <Stack
               flexDirection="row"
@@ -143,9 +152,11 @@ const Gear = () => {
                 GPU :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>
-                Nvidia GTX 1650 Super
-              </Text>
+              <Link href="https://amzn.to/2Rkc1oV" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>
+                  Nvidia GTX 1650 Super
+                </Text>
+              </Link>
             </Stack>
             <Stack
               flexDirection="row"
@@ -158,7 +169,9 @@ const Gear = () => {
                 Monitors :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>Dell D2015H</Text>
+              <Link href="https://amzn.to/3hAITEA" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>Dell D2015H</Text>
+              </Link>
             </Stack>
             <Stack
               flexDirection="row"
@@ -171,7 +184,9 @@ const Gear = () => {
                 KeyBoard :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>Logitech K380</Text>
+              <Link href="https://amzn.to/3byNu6a" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>Logitech K380</Text>
+              </Link>
             </Stack>
             <Stack
               flexDirection="row"
@@ -184,9 +199,11 @@ const Gear = () => {
                 Mouse :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>
-                Logitech Pebble M350
-              </Text>
+              <Link href="https://amzn.to/3fptxQt" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>
+                  Logitech Pebble M350
+                </Text>
+              </Link>
             </Stack>
             <Heading mt={5} mb={2} color={colorHeading[colorMode]} size="lg">
               Software :
@@ -202,7 +219,9 @@ const Gear = () => {
                 Code Editor :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>VS Code</Text>
+              <Link href="https://code.visualstudio.com/" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>VS Code</Text>
+              </Link>
             </Stack>
             <Stack
               flexDirection="row"
@@ -215,7 +234,9 @@ const Gear = () => {
                 API Testing :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>Postman</Text>
+              <Link href="https://www.postman.com/" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>Postman</Text>
+              </Link>
             </Stack>
             <Stack
               flexDirection="row"
@@ -228,7 +249,9 @@ const Gear = () => {
                 Pentesting :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>Kali Linux</Text>
+              <Link href="https://kali.org/" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>Kali Linux</Text>
+              </Link>
             </Stack>
             <Stack
               flexDirection="row"
@@ -241,7 +264,9 @@ const Gear = () => {
                 Browser :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>Google Chrome</Text>
+              <Link href="https://www.google.com/chrome/index.html" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>Google Chrome</Text>
+              </Link>
             </Stack>
             <Stack
               flexDirection="row"
@@ -254,7 +279,9 @@ const Gear = () => {
                 Screen Recorder :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>OBS </Text>
+              <Link href="https://obsproject.com/" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>OBS </Text>
+              </Link>
             </Stack>
             <Stack
               flexDirection="row"
@@ -267,9 +294,9 @@ const Gear = () => {
                 Video Editor :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>
-                Kdenlive | DaVinci Resolve
-              </Text>
+              <Link href="https://kdenlive.org/en/" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>Kdenlive</Text>
+              </Link>
             </Stack>
             <Stack
               flexDirection="row"
@@ -282,7 +309,9 @@ const Gear = () => {
                 Terminal :
               </Text>
               <Spacer />
-              <Text color={colorSecondary[colorMode]}>Alacritty</Text>
+              <Link href="https://github.com/alacritty/alacritty" isExternal="true">
+                <Text color={colorSecondary[colorMode]}>Alacritty</Text>
+              </Link>
             </Stack>
           </Flex>
         </Stack>

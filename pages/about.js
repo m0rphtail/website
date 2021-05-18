@@ -71,8 +71,7 @@ export default function Index() {
             <Text color={colorSecondary[colorMode]}>
               A developer, creator and student, currently in 3rd year studying
               Computer Science and freelancing as a CyberSecurity Auditor and
-              Pentester. I'm a pantomath on the learning curve trying my best to
-              get to modern polymathy. I'm a huge GNU/linux fanatic and FOSS
+              Pentester. I'm a huge GNU/linux fanatic and FOSS
               evangelist. I'm also sometimes referred to as MorphTail, my alter
               ego.
             </Text>
