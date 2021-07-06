@@ -79,7 +79,7 @@ const Gear = () => {
             </Heading>{" "}
             <Divider minW="100%" mb={5} />
             <Flex mt={5} w="100%" h="100px">
-              <NextLink href="https://raw.githubusercontent.com/m0rphtail/website/dev/public/resume.pdf" isExternal="true">
+              <NextLink href="https://raw.githubusercontent.com/m0rphtail/website/main/public/Kshitij_Chitnis_resume.pdf">
                 <Button
                   w="100%"
                   h="100%"
