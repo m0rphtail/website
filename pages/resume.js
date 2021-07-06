@@ -6,19 +6,29 @@ import {
   Heading,
   Divider,
   Text,
+  Button,
 } from "@chakra-ui/react";
+import NextLink from "next/link";
 import Container from "../components/Container";
 import { NextSeo } from "next-seo";
 
 const Gear = () => {
   const { colorMode } = useColorMode();
   const colorPrimary = {
-    light: "linear(to-br, #3399ff,#ff3399)",
-    dark: "linear(to-br, #33ccff,#ff55cc)",
+    dark: "blackAlpha.800",
+    light: "whiteAlpha.900",
   };
   const colorSecondary = {
     light: "gray.700",
     dark: "gray.400",
+  };
+  const Bg = {
+    light: "linear(to-br, #3399ff,#ff3399)",
+    dark: "linear(to-br, #33ccff,#ff55cc)",
+  };
+  const hoverBg = {
+    light: "linear(to-bl,#ff3399, #3399ff)",
+    dark: "linear(to-bl,#ff55cc, #33ccff,)",
   };
 
   return (
@@ -46,7 +56,7 @@ const Gear = () => {
           spacing={8}
           justifyContent="center"
           alignItems="flex-start"
-          m="0 auto 4rem auto"
+          m="0 auto 0 auto"
           maxWidth="700px"
         >
           <Flex
@@ -57,19 +67,30 @@ const Gear = () => {
             px={4}
           >
             <Heading
-              mb={2}
+              letterSpacing="tight"
+              mb={4}
               as="h1"
               size="2xl"
-              bgGradient={colorPrimary[colorMode]}
+              bgGradient={Bg[colorMode]}
               bgClip="text"
               padding="5px"
             >
               Resume
-            </Heading>
-            <Divider maxW="100%" mb={10} />
-            <Text color={colorSecondary[colorMode]}>
-              Haven't made it yet, Check back later 🙂
-            </Text>
+            </Heading>{" "}
+            <Divider minW="100%" mb={5} />
+            <Flex mt={5} w="100%" h="100px">
+              <NextLink href="https://raw.githubusercontent.com/m0rphtail/website/dev/public/resume.pdf" isExternal="true">
+                <Button
+                  w="100%"
+                  h="100%"
+                  bgGradient={Bg[colorMode]}
+                  _hover={{ bgGradient: hoverBg[colorMode] }}
+                  animation=""
+                >
+                  <Heading color={colorPrimary[colorMode]}>Download</Heading>
+                </Button>
+              </NextLink>
+            </Flex>
           </Flex>
         </Stack>
       </Container>
