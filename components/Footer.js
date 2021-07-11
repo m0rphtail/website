@@ -26,7 +26,7 @@ export const Footer = () => {
       <Stack mt={5} spacing={1} direction="row" alignSelf="center">
         <Flex>
           <Link
-            href="https://twitter.com/kshitijchitnis"
+            href="https://twitter.com/MorphTail"
             title="Twitter"
             isExternal
           >
