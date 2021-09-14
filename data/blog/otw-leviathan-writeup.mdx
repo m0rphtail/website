@@ -184,7 +184,9 @@ The mode specifies the accessibility `check(s)` to be performed and `4` specifie
 
 On diccess (all requested permissions granted), `0` is returned. On error (at least one bit mode asked for a permission that is denied, or some other error occurred), `-1` is returned.
 
-`int snprintf(char * restrict dest, size_t n, const char * restrict format, ... );`
+```c
+int snprintf(char * restrict dest, size_t n, const char * restrict format, ... );
+```
 
 The `snprintf()` function is similar to `printf()`, but writes its output as a string in the buffer referenced by the first pointer argument, dest, rather than to stdout. Furthermore, the second argument, n, specifies the maximum number of characters that `snprintf()` may write to the buffer, including the terminating null character.
 
@@ -222,7 +224,9 @@ The binary for level 4 is in the `.trash` folder in the home directory.
 
 If we run it, we get a bunch of binary text.
 
-`01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010`
+```bash
+01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010
+```
 
 There are many ways to convert binary data into text, but the easiest way is to use an online converter like [this](https://www.rapidtables.com/convert/number/binary-to-ascii.html).
 
