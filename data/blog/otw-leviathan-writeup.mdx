@@ -1,0 +1,314 @@
+---
+title: "OTW - Leviathan WriteUp"
+publishedAt: "2021-09-05"
+summary: "OverTheWire Leviathan Walkthrough"
+---
+
+[Leviathan](https://overthewire.org/wargames/leviathan/) is a wargame that has been rescued from the demise of intruded.net, previously hosted on leviathan.intruded.net.
+
+What follows below is the original description of leviathan, copied from intruded.net:
+
+```markdown
+Summary:
+Difficulty:     1/10
+Levels:         8
+Platform:   Linux/x86
+
+Author:
+Anders Tonfeldt
+
+Special Thanks:
+We would like to thank AstroMonk for coming up with a replacement idea
+for the last level, deadfood for finding a leveljump and Coi for finding
+a non-planned vulnerability.
+
+Description:
+This wargame doesn't require any knowledge about programming - just a bit
+of common sense and some knowledge about basic *nix commands. We had no
+idea that it'd be this hard to make an interesting wargame that wouldn't 
+require programming abilities from the players. Hopefully we made an
+interesting challenge for the new ones.
+```
+
+Leviathan’s levels are called leviathan0, leviathan1, … etc. and can be accessed on `leviathan.labs.overthewire.org` through SSH on port `2223`.
+
+Data for the levels can be found in the homedirectories. You can look at `/etc/leviathan_pass` for the various level passwords.
+
+Leviathan was a mix between *reversing* and *misc* styled challenges and had beginner level difficulty, nevertheless it was very interesting to solve them.
+
+**NOTE:** To avoid spoiling the passwords if you want to solve them on your own and also to prevent lazy people from just copying the passwords ***:p*** , I will replace the actual passwords with `P455w0RD`.
+
+So, lets get started!
+
+---
+
+## Level 0 -> Level 1
+To login to the first level use:
+
+```markdown
+username: leviathan0
+password: leviathan0
+```
+
+Once you ssh in, and run `ls -la`
+you can find a hidden `.backup` folder which contains `bookmarks.html` file.
+
+```bash
+leviathan0@leviathan:~$ ls -la
+total 24
+drwxr-xr-x  3 root       root       4096 Aug 26  2019 .
+drwxr-xr-x 10 root       root       4096 Aug 26  2019 ..
+drwxr-x---  2 leviathan1 leviathan0 4096 Aug 26  2019 .backup
+-rw-r--r--  1 root       root        220 May 15  2017 .bash_logout
+-rw-r--r--  1 root       root       3526 May 15  2017 .bashrc
+-rw-r--r--  1 root       root        675 May 15  2017 .profile
+```
+
+The file is big, containing about 1399 lines.
+But just grepping the file with `password`, we get the password for the next level! 
+
+```bash
+leviathan0@leviathan:~/.backup$ grep "password" bookmarks.html
+<DT><A HREF="http://leviathan.labs.overthewire.org/passwordus.html | This will be fixed later, the password for leviathan1 is P455W0RD" ADD_DATE="1155384634" LAST_CHARSET="ISO-8859-1" ID="rdf:#$2wIU71">password to leviathan1</A>
+```
+
+---
+ 
+## Level 1 -> Level 2
+
+Once logged into `leviathan1` with the password we got in the last level, we can see that we have a file named `check`.
+
+Running `file check` we get to know that it is actually an executable file
+
+```markdown
+check: setuid ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, for GNU/Linux 2.6.32, BuildID[sha1]=c735f6f3a3a94adcad8407cc0fda40496fd765dd, not stripped
+```
+
+If you run the binary, it asks you for a password ***:(***
+
+```markup
+leviathan1@leviathan:~$ ./check
+password: idk bruh
+Wrong password, Good Bye ...
+```
+
+Reading through the banner that was displayed when we log in, we know that there are a few debugging tools awailable for us.
+
+So I open the binary in radare2, seek to the main function and print the disassembly to get this.
+
+```nasm
+--snip--
+            0x0804853b      8d4c2404       lea ecx, [arg_4h]
+|           0x0804853f      83e4f0         and esp, 0xfffffff0
+|           0x08048542      ff71fc         push dword [ecx - 4]
+|           0x08048545      55             push ebp
+|           0x08048546      89e5           mov ebp, esp
+|           0x08048548      53             push ebx
+|           0x08048549      51             push ecx
+|           0x0804854a      83ec20         sub esp, 0x20
+|           0x0804854d      c745f0736578.  mov dword [s2], 0x786573    ; 'sex'
+|           0x08048554      c745e9736563.  mov dword [var_17h], 0x72636573 ; 'secr'
+|           0x0804855b      66c745ed6574   mov word [var_13h], 0x7465  ; 'et'
+|           0x08048561      c645ef00       mov byte [var_11h], 0
+|           0x08048565      c745e5676f64.  mov dword [var_1bh], 0x646f67 ; 'god'
+|           0x0804856c      c745e06c6f76.  mov dword [var_20h], 0x65766f6c ; 'love'
+|           0x08048573      c645e400       mov byte [var_1ch], 0
+|           0x08048577      83ec0c         sub esp, 0xc
+|           0x0804857a      6890860408     push str.password:          ; 0x8048690 ; "password: " ; const char *format
+|           0x0804857f      e83cfeffff     call sym.imp.printf         ; int printf(const char *format)
+|           0x08048584      83c410         add esp, 0x10
+|           0x08048587      e844feffff     call sym.imp.getchar        ; int getchar(void)
+|           0x0804858c      8845f4         mov byte [s1], al
+|           0x0804858f      e83cfeffff     call sym.imp.getchar        ; int getchar(void)
+|           0x08048594      8845f5         mov byte [var_bh], al
+|           0x08048597      e834feffff     call sym.imp.getchar        ; int getchar(void)
+|           0x0804859c      8845f6         mov byte [var_ah], al
+|           0x0804859f      c645f700       mov byte [var_9h], 0
+|           0x080485a3      83ec08         sub esp, 8
+|           0x080485a6      8d45f0         lea eax, [s2]
+|           0x080485a9      50             push eax                    ; const char *s2
+|           0x080485aa      8d45f4         lea eax, [s1]
+|           0x080485ad      50             push eax                    ; const char *s1
+|           0x080485ae      e8fdfdffff     call sym.imp.strcmp         ; int strcmp(const char *s1, const char *s2)
+|           0x080485b3      83c410         add esp, 0x10
+|           0x080485b6      85c0           test eax, eax
+|       ,=< 0x080485b8      752b           jne 0x80485e5
+|       |   0x080485ba      e821feffff     call sym.imp.geteuid        ; uid_t geteuid(void)
+|       |   0x080485bf      89c3           mov ebx, eax
+|       |   0x080485c1      e81afeffff     call sym.imp.geteuid        ; uid_t geteuid(void)
+|       |   0x080485c6      83ec08         sub esp, 8
+--snip--
+```
+
+From this assembly code from the main function, we can see that the program runs a printf function at `0x0804857f` stores the value in `s1` and does a strcmp at `0x080485ae` with `s2`.
+Looking at address `0x0804854d` we can see that the variable `s2` is assigned value `sex`.
+
+So running the binary again and with `sex` as the password, we get a shell and now we can cat out the password for the next level!
+
+```bash
+leviathan1@leviathan:~$ ./check 
+password: sex
+$ cat /etc/leviathan_pass/leviathan2
+P455W0RD
+```
+
+---
+
+## Level 2 -> Level 3
+
+In this level, the binary we have takes in a file name as an argument and prints the contents of the file.
+
+After running the command `ltrace ./printfile /etc/leviathan_pass/leviathan2` we find that first `access` function returns `0` for the file meaning we have read permission for it. Then the function `snprintf` writes a string consisting of `/bin/cat` and the file path. Then function `system` is called which displays the content of the file.
+
+```c
+leviathan2@leviathan:~$ ltrace ./printfile /etc/leviathan_pass/leviathan2
+__libc_start_main(0x804852b, 2, 0xffffd764, 0x8048610 <unfinished ...>
+access("/etc/leviathan_pass/leviathan2", 4)                                = 0
+snprintf("/bin/cat /etc/leviathan_pass/lev"..., 511, "/bin/cat %s", "/etc/leviathan_pass/leviathan2") = 39
+geteuid()                                                                  = 12002
+geteuid()                                                                  = 12002
+setreuid(12002, 12002)                                                     = 0
+system("/bin/cat /etc/leviathan_pass/lev"...ougahZi8Ta
+ <no return ...>
+--- SIGCHLD (Child exited) ---
+<... system resumed> )                                                     = 0
++++ exited (status 0) +++
+
+```
+
+`int access(const char *pathname, int node);`
+
+`access()` checks whether the calling process can access the file pathname. If pathname is a symbolic link it is dereferenced.
+
+The mode specifies the accessibility `check(s)` to be performed and `4` specifies read permission.
+
+On diccess (all requested permissions granted), `0` is returned. On error (at least one bit mode asked for a permission that is denied, or some other error occurred), `-1` is returned.
+
+`int snprintf(char * restrict dest, size_t n, const char * restrict format, ... );`
+
+The `snprintf()` function is similar to `printf()`, but writes its output as a string in the buffer referenced by the first pointer argument, dest, rather than to stdout. Furthermore, the second argument, n, specifies the maximum number of characters that `snprintf()` may write to the buffer, including the terminating null character.
+
+The return value is the number of characters that woulf have been written if n had been large enough.
+
+The access function has a vulnerability *TOCTOU* race (Time of Check to Time of Update). The programe calls the `access()`, then calls the `open()`. In the small time between the two calls, the file may have changed. A malicious user could substitute a file he has access to for a symbolic link to something he doesn't have access to between the 2 calls. 
+
+So we create a file `symlink` with a symbolic link to `/etc/levianthan_pass/levianthan3`. But we cannot pass symlink with binary file, so we create another file space as different files and it will only accept the symlink. When the `system` function is called it will output the content in the file linked by `symlink`.
+
+We pass symlink space with the binary file and the access function will accept the complete path of the file but /bin/cat will treat symlink and space as different files and it will only accept the symlink. When the `system` function is called it will output the content in the file linked by symlink.
+
+![level2](/images/blog/levianthan/level2.png)
+
+---
+
+## Level 3 -> Level 4
+
+Level 3 has another binary in the home directory.
+
+If we run it, it asks us for a password.
+
+Then if the binary is run with `ltrace`. We can see that the input password is compared with `snlprintf`, so that must be the password; and infact it is!
+
+![level3](/images/blog/levianthan/level3.png)
+
+Now if we run the binary with `snlprintf` as the password, we get a shell and can read the password for the next level.
+
+![level3](/images/blog/levianthan/level3_1.png)
+
+---
+
+## Level 4 -> Level 5
+
+The binary for level 4 is in the `.trash` folder in the home directory.
+
+If we run it, we get a bunch of binary text.
+
+`01010100 01101001 01110100 01101000 00110100 01100011 01101111 01101011 01100101 01101001 00001010`
+
+There are many ways to convert binary data into text, but the easiest way is to use an online converter like [this](https://www.rapidtables.com/convert/number/binary-to-ascii.html).
+
+Converting binary into text we get the password.
+
+---
+
+## Level 5 -> Level 6
+
+There is a binary file `levianthan5`. Running it gives us an error saying `Cannot find /tmp/file.log`.
+
+So we can try to make a symlink of the password file to `/tmp/file.log`; and the binary to get the password.
+
+![level5](/images/blog/levianthan/level5.png)
+
+---
+
+## Level 6 -> Level 7
+
+The binary file `levianthan6` asks us to pass a 4-digit code as an argument.
+
+Let's open the binary with radare2 and analyze the code
+
+```nasm
+--snip--
+|           0x0804853b      8d4c2404       lea ecx, [arg_4h]
+|           0x0804853f      83e4f0         and esp, 0xfffffff0
+|           0x08048542      ff71fc         push dword [ecx - 4]
+|           0x08048545      55             push ebp
+|           0x08048546      89e5           mov ebp, esp
+|           0x08048548      53             push ebx
+|           0x08048549      51             push ecx
+|           0x0804854a      83ec10         sub esp, 0x10
+|           0x0804854d      89c8           mov eax, ecx
+|           0x0804854f      c745f4d31b00.  mov dword [var_ch], 0x1bd3
+|           0x08048556      833802         cmp dword [eax], 2
+|       ,=< 0x08048559      7420           je 0x804857b
+|       |   0x0804855b      8b4004         mov eax, dword [eax + 4]
+|       |   0x0804855e      8b00           mov eax, dword [eax]
+|       |   0x08048560      83ec08         sub esp, 8
+|       |   0x08048563      50             push eax
+|       |   0x08048564      6860860408     push str.usage:__s__4_digit_code ; 0x8048660 ; "usage: %s <4 digit code>\n" ; const char *format
+|       |   0x08048569      e842feffff     call sym.imp.printf         ; int printf(const char *format)
+|       |   0x0804856e      83c410         add esp, 0x10
+|       |   0x08048571      83ec0c         sub esp, 0xc
+|       |   0x08048574      6aff           push 0xffffffffffffffff     ; int status
+|       |   0x08048576      e875feffff     call sym.imp.exit           ; void exit(int status)
+|       |   ; CODE XREF from main @ 0x8048559
+|       `-> 0x0804857b      8b4004         mov eax, dword [eax + 4]
+|           0x0804857e      83c004         add eax, 4
+|           0x08048581      8b00           mov eax, dword [eax]
+|           0x08048583      83ec0c         sub esp, 0xc
+|           0x08048586      50             push eax                    ; const char *str
+|           0x08048587      e894feffff     call sym.imp.atoi           ; int atoi(const char *str)
+|           0x0804858c      83c410         add esp, 0x10
+|           0x0804858f      3b45f4         cmp eax, dword [var_ch]
+|       ,=< 0x08048592      752b           jne 0x80485bf
+|       |   0x08048594      e827feffff     call sym.imp.geteuid        ; uid_t geteuid(void)
+|       |   0x08048599      89c3           mov ebx, eax
+|       |   0x0804859b      e820feffff     call sym.imp.geteuid        ; uid_t geteuid(void)
+|       |   0x080485a0      83ec08         sub esp, 8
+|       |   0x080485a3      53             push ebx
+|       |   0x080485a4      50             push eax
+--snip--
+```
+
+We can see that at address `0x08048587` the `atoi` function is called. The `atoi` function converts a character string to an integer value.
+
+Then we see that `$eax` is compared with `var_ch`.
+
+If we look at address `0x0804854f` we see that `var_ch` has the value `0x1bd3` assigned to it.
+
+We can convert the hex value into a decimal number like this:
+
+```py
+python -c "print(0x1bd3)"
+```
+
+Running this we get `7123` and this is our password. If we pass this as the argument to the binary, we get a shell and can read the password for the next level!
+
+![level6](/images/blog/levianthan/level6.png)
+
+---
+
+## Level 7
+
+When we log into level 7 with the password we got previously, we are greated with a message *CONGRATULATIONS* !
+
+![level7](/images/blog/levianthan/level7.png)
