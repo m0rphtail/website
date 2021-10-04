@@ -1,0 +1,76 @@
+---
+title: "HTB - Cap WriteUp"
+publishedAt: "2021-10-04"
+summary: "HackTheBox Cap Walkthrough"
+---
+
+![](https://www.hackthebox.eu/storage/avatars/70ea3357a2d090af11a0953ec8717e90.png)
+
+[Cap](https://app.hackthebox.eu/machines/Cap) was an Easy machine
+
+---
+
+## Enumeration
+
+The obvious first thing to do is a nmap scan.
+I ran scan with the `TCP SYN`, Service version enumeration options and outputed the result into files.
+
+![](/images/blog/cap/1.png)
+
+We can see that there are 3 open ports.
+Looks like there is a webpage on port `80`, so that's what I'll look into first.
+
+Opening the page in firefox, we see a dashboard
+
+![](/images/blog/cap/2.png)
+
+I'm a bit lazy to manually look at the different pages there might be in this webapp.
+so I'll run gobuster to automatically do that. Gobuster will also find any hidden directories, if any.
+
+![](/images/blog/cap/3.png)
+
+After running gobuster, we see 4 different pages. The `capture/` redirects to `/data/13`.
+So checking that page in firefox we see some data and a button to download pcap file.
+
+![](/images/blog/cap/4.png)
+
+---
+
+## FootHold
+
+Check the `/data/0` page and download the pcap file. If we open the file with wireshark we can see something intresting. 
+
+![](/images/blog/cap/5.png)
+
+We can filter the capture file to show only ftp packets. we can see a username and password. nice!
+
+![](/images/blog/cap/6.png)
+
+---
+
+## User Flag
+
+Let's try to login via ssh with the username and password we got.
+
+![](/images/blog/cap/7.png)
+
+We are in. We can see the user flag now
+
+![](/images/blog/cap/8.png)
+
+If we try get to the `/root` folder, we dont have permission. we also can't run sudo, as `nathan` is not in the sudoers file.
+
+![](/images/blog/cap/9.png)
+
+---
+
+## Root Flag
+
+After a bit of enumeration we find that python has been running as root.
+So we can try to get a root shell with python.
+
+And that works, we are now root, we can see the root flag.
+
+![](/images/blog/cap/10.png)
+
+### ***Pwned!!!***
