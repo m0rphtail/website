@@ -20,8 +20,8 @@ export default function Index() {
     dark: "linear(to-br, #33ccff,#ff55cc)",
   };
   const hoverBg = {
-    light: "linear(to-bl,#ff3399, #3399ff)",
-    dark: "linear(to-bl,#ff55cc, #33ccff,)",
+    light: "linear(to-tr,#ff3399, #3399ff)",
+    dark: "linear(to-tr,#ff55cc, #33ccff,)",
   };
 
   return (
@@ -75,7 +75,7 @@ export default function Index() {
               them out and learning various new things, but these are the things
               I spend most of my time on.
             </Text>
-            <Flex mt={5} w="100%" h="200px">
+            {/* <Flex mt={5} w="100%" h="200px">
               <NextLink href="/things-i-do/code">
                 <Button
                   w="100%"
@@ -87,11 +87,22 @@ export default function Index() {
                   <Heading color={colorPrimary[colorMode]}>Code</Heading>
                 </Button>
               </NextLink>
-            </Flex>
+            </Flex> */}
             <Flex mt={3} w="100%" h="200px">
+              <NextLink href="/things-i-do/hack">
+                <Button
+                  w="60%"
+                  h="100%"
+                  bgGradient={Bg[colorMode]}
+                  _hover={{ bgGradient: hoverBg[colorMode] }}
+                >
+                  <Heading color={colorPrimary[colorMode]}>Hack</Heading>
+                </Button>
+              </NextLink>
+              <Spacer />
               <NextLink href="/things-i-do/art">
                 <Button
-                  w="49%"
+                  w="38%"
                   h="100%"
                   bgGradient={Bg[colorMode]}
                   _hover={{ bgGradient: hoverBg[colorMode] }}
@@ -99,15 +110,27 @@ export default function Index() {
                   <Heading color={colorPrimary[colorMode]}>Art</Heading>
                 </Button>
               </NextLink>
-              <Spacer />
+            </Flex>
+            <Flex mt={3} w="100%" h="200px">
               <NextLink href="/things-i-do/music">
                 <Button
-                  w="49%"
+                  w="38%"
                   h="100%"
                   bgGradient={Bg[colorMode]}
                   _hover={{ bgGradient: hoverBg[colorMode] }}
                 >
                   <Heading color={colorPrimary[colorMode]}>Music</Heading>
+                </Button>
+              </NextLink>
+              <Spacer />
+              <NextLink href="/things-i-do/code">
+                <Button
+                  w="60%"
+                  h="100%"
+                  bgGradient={Bg[colorMode]}
+                  _hover={{ bgGradient: hoverBg[colorMode] }}
+                >
+                  <Heading color={colorPrimary[colorMode]}>Code</Heading>
                 </Button>
               </NextLink>
             </Flex>
