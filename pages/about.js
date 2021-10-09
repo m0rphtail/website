@@ -69,8 +69,7 @@ export default function Index() {
               </Tag>
             </Heading>
             <Text color={colorSecondary[colorMode]}>
-              A developer, creator and student, currently in 3rd year studying
-              Computer Science and freelancing as a CyberSecurity Auditor and
+              A developer, creator and student, currently in the final year of Information Technology Engineering. Also freelancing as a CyberSecurity Auditor and
               Pentester. I'm a huge GNU/linux fanatic and FOSS
               evangelist. I'm also sometimes referred to as MorphTail, my alter
               ego.
