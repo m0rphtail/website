@@ -90,7 +90,7 @@ export const Footer = () => {
             />
           </Link>
           <Link
-            href="https://www.instagram.com/jitihsk.sintihc"
+            href="https://www.instagram.com/morphtail"
             title="Instagram"
             isExternal
           >
